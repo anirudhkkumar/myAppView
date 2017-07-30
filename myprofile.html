@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Arhatic Matrimony</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="js/env.js"></script>
+    <script src="config.js"></script>
+    <script src="controller/maincontrol.js"></script>
+
+</head>
+
+<body ng-app="arthatic" ng-controller="myProfilecontrol">
+
+<header>
+        <div class="center-block">
+            <div class="container">
+            <div class="col-sm-6 col-md-8">
+                 <img src="images/logo.png" alt="logo" class="img-responsive" />
+            </div>
+               
+                <div class="col-md-4">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-8 col-sm-12">
+                        <input type="text" class="form-control input-lg search-bar" placeholder="Search" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-lg" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="menu-sub">
+                         <ul>
+                        <li><a href="">welcome, user</a></li>|
+                        <li><a href="" ng-click="logout()">Logout</a></li>
+                    </ul>
+                    </div>
+                    
+        </div>
+                </div>
+            </div>  
+    <nav class="navbar navbar-default mega-nav">
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#MainMenu" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="MainMenu">
+            <ul class="nav navbar-nav menu-list">
+                <!--<li class="dropdown list-category">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-navicon"></i> Categories <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li><a href="#">Cushion</a></li>
+                        <li><a href="#">Bath</a></li>
+                        <li><a href="#">Air Conditioner</a></li>
+                        <li><a href="#">Radiator</a></li>
+                        <li><a href="#">Washing Machine</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">View all</a></li>
+                    </ul>
+                </li>-->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Success Stories</a></li> 
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+            
+        </div>
+        </div>
+    </nav>
+
+</header>
+    
+    <section class="login">
+        <div class="container">
+            <form class="form-horizontal">
+                <fieldset>
+
+<!-- Form Name -->
+<legend class="color_red">Please enter details for your profile</legend>
+<span class="span_left">All fileds are mandatory</span>
+
+<div class="pro_secs">
+<h4>Physical Attribute</h4>
+<div class="form-group">
+  <label class="col-md-3 control-label" for="selectbasic">Height</label>
+  <div class="col-md-4">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select Height</option>
+      <option></option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Cms.</option>
+      <option></option>
+    </select>
+  </div>
+  </div>
+
+<div class="form-group">
+  <label class="col-md-3 control-label" for="selectbasic">Weight</label>
+  <div class="col-md-4">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select Weight (Kgs)</option>
+      <option>30-50</option>
+      <option>50-80</option>
+    </select>
+  </div>
+  </div>
+<div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Complexity</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      Very Fair
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Fair
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Wheatish
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Dark
+    </label>
+  </div>
+</div>   
+
+<div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Any Disability</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      Normal
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Physically Challanged
+    </label>
+  </div>
+</div>  
+
+</div>
+
+<div class="pro_secs">
+<h4>Personal Information</h4>
+
+<div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Martial Status</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      Male
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Female
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Female
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Female
+    </label>
+  </div>
+</div> 
+<div class="form-group">
+  <label class="col-md-3 control-label" for="selectbasic">Religion</label>
+  <div class="col-md-4">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select</option>
+      <option>Hindi</option>
+      <option>Panjabi</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-3 control-label" for="ln">Language Known</label>  
+  <div class="col-md-4">
+  <input id="ln" name="ln" type="text" placeholder="Enter Known Language" class="form-control input-md" required="">
+  </div>
+</div>
+ <div class="form-group">
+  <label class="col-md-3 control-label" for="ln">Facebook</label>  
+  <div class="col-md-4">
+  <input id="ln" name="ln" type="text" placeholder="Facebook Profile url" class="form-control input-md" required="">
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-3 control-label" for="ln">Whatsapp Contact</label>  
+  <div class="col-md-4">
+  <input id="ln" name="ln" type="text" placeholder="Whatsapp Contact Number" class="form-control input-md" required="">
+  </div>
+</div>
+ 
+
+</div>
+
+<div class="pro_secs">
+<h4>Habits</h4>
+
+<div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Eating Habits</label>
+  <div class="col-md-5"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      Vegetarian
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Non-Vegetarian
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Egaetarian
+    </label>
+  </div>
+</div> 
+ <div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Smoking Habits</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      No
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Yes
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Occasionally
+    </label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Drinking Habits</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      No
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Yes
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Occasionally
+    </label>
+  </div>
+</div>
+
+</div>
+
+<div class="pro_secs">
+<h4>Location</h4>
+
+<div class="form-group">
+  <label class="col-md-3 control-label" for="ln">Native Place</label>  
+  <div class="col-md-4">
+  <input id="ln" name="ln" type="text" placeholder="Enter a Native Place" class="form-control input-md" required="">
+  </div>
+</div>
+ <div class="form-group">
+  <label class="col-md-3 control-label" for="ln">Current City</label>  
+  <div class="col-md-4">
+  <input id="ln" name="ln" type="text" placeholder="Enter a Current City" class="form-control input-md" required="">
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-3 control-label" for="ln">Current State</label>  
+  <div class="col-md-4">
+  <input id="ln" name="ln" type="text" placeholder="Enter a Current State" class="form-control input-md" required="">
+  </div>
+</div>
+ 
+
+</div>
+
+</fieldset>
+                <div class="form-group">
+                 <div class="col-md-12 col-sm-6 col-md-push-3 btn-both">
+      <button id="next" name="next" class="btn btn-login">Next</button>
+  </div>
+                    
+                </div>
+            </form>
+        </div>
+    </section>
+     
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="footer-social-icons">
+                           <ul class="social-icons">
+                                <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>|
+                                <li><a href="" class="social-icon"> <i class="fa fa-play"></i></a></li>|
+                                <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="copyright">
+                            <p>Copyright &copy; Your Website 2014</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-5">
+                        <div class="contact">
+                            <ul>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>+91 0000000000</li>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i>arhaticticmatrimony@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    
+  
+</body>
+
+</html> 

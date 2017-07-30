@@ -26,10 +26,13 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="js/env.js"></script>
+    <script src="config.js"></script>
+    <script src="controller/maincontrol.js"></script>
 </head>
 
-<body>
+<body ng-app="arthatic" ng-controller="logincontrol">
 
 <header>
    <div class="center-block">
@@ -106,16 +109,16 @@
            <div class="col-sm-12 col-md-12">
                 <h2>Log In to your Account</h2>
             </div>
-            <div class="col-sm-6 col-md-6 form-brdr hidden-xs">
+            <div class="col-sm-6 col-md-6 form-brdr">
                 <form class="form-style">
 					<div class="form-line">
 			  			<div class="form-group">
 			  				<label for="exampleInputUsername">User Name</label>
-					    	<input type="text" class="form-control" id="" placeholder=" Enter Name">
+					    	<input ng-model="username" type="text" class="form-control" id="" placeholder=" Enter Name">
 				  		</div>
 				  		<div class="form-group">
 					    	<label for="exampleInputEmail">Password</label>
-					    	<input type="email" class="form-control" id="exampleInputEmail" placeholder=" Enter Email id">
+					    	<input ng-model="pass" type="password" class="form-control" id="exampleInputEmail" placeholder="Enter your passwords">
 					  	</div>
                         <div class="text-fg">
                             <span>Forget Your password?</span>
@@ -125,11 +128,11 @@
 					    	<input type="email" class="form-control" id="exampleInputEmail" placeholder=" Enter Email id">
 					  	</div>
                         <div class="form-group">
-			  				<button type="button" class="btn btn-login submit">Log In</button>
+			  				<button ng-click="usrname()" type="button" class="btn btn-login submit">Log In</button>
                         </div>
                         <div class="checkbox">
-  <label><input type="checkbox" value="">Keep me logged in</label>
-</div>
+                          <label><input type="checkbox" value="">Keep me logged in</label>
+                        </div>
 			  		</div>
 			  		
 				</form>

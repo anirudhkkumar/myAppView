@@ -446,6 +446,16 @@ form .btn-grey {
     margin-bottom: 0;
     text-align: left; 
 }
+
+span.span_left {
+    float: right;
+}
+.color_red {
+    color: #b3225b!important;
+}
+.pro_secs {
+    margin: 30px 0 0 0;
+}
 /* Responsive Styles */
 
 @media(max-width:991px) {
