@@ -19,7 +19,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -51,14 +51,16 @@
                     </div>
                     <div class="menu-sub">
                          <ul>
-                        <li><a href="">Signup</a></li>|
-                        <li><a href="">Login</a></li>
+                        <li><a href="">Welcome user<i class="fa fa-user"></i></a></li>|
+                        <li><a href="">Signout</a></li>
                     </ul>
                     </div>
                     
         </div>
                 </div>
-            </div>  
+            </div>
+       
+    
     <nav class="navbar navbar-default mega-nav">
         <div class="container">
         <div class="navbar-header">
@@ -85,7 +87,7 @@
                         <li><a href="#">View all</a></li>
                     </ul>
                 </li>-->
-                <li><a href="index.html" class="">Home</a></li>
+               <li><a href="index.html" class="">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="profile.html">Profile</a></li>
                 <li><a href="search.html">Search</a></li>
@@ -101,140 +103,101 @@
 
 </header>
     
-    <section class="login">
-        <div class="container">
-            <form class="form-horizontal">
-                <fieldset>
-
-<!-- Form Name -->
-<legend>New Registration</legend>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="fn">Name</label>  
-  <div class="col-md-4">
-  <input id="fn" name="fn" type="text" placeholder="Name" class="form-control input-md" required>
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="ln">Choose Username</label>  
-  <div class="col-md-4">
-  <input id="ln" name="ln" type="text" placeholder="Username" class="form-control input-md" required>
-    <label></label>
-  </div>
-    <div class="col-md-3"><a href="">Check Availability</a></div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="cmpny">Choose Password</label>  
-  <div class="col-md-4">
-  <input id="password" name="password" type="text" placeholder="Password" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="email">Re-enter Password</label>  
-  <div class="col-md-4">
-  <input id="password" name="password" type="text" placeholder="Re-enterPassword" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="gender">Gender</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline active" for="">
-      <input type="radio" name="Male" id="" value="yes" checked="checked">
-      Male
-    </label> 
-    <label class="radio-inline" for="">
-      <input type="radio" name="Female" id="" value="no">
-      Female
-    </label>
-  </div>
-</div>               
-
-<!-- Date-picker input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="add1">Date of birth</label>  
-  <div class="col-md-4">
-  <input id="add1" name="add1" type="text" placeholder="" class="form-control input-md" required="">
-    
-  </div>
-</div>
-                    
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="selectbasic">Mother Tongue</label>
-  <div class="col-md-4">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
-      <option>Hindi</option>
-      <option>Panjabi</option>
-    </select>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="">Mobile Number</label> 
-  <div class="col-md-2">
-    <input id="mobile number" name="mobile number" type="text" placeholder="" class="form-control input-md">
-  </div>
-  <div class="col-md-4">
-  <input id="mobile number" name="mobile number" type="text" placeholder="" class="form-control input-md">
-  </div>
-    <div class="col-md-3">
-        <span><a href="">Send Verfication Code</a></span>
-    </div>
-</div>
-
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="">Country</label>
-  <div class="col-md-4">
-    <select id="Country" name="Country" class="form-control input-md">
-      <option>India</option>
-      <option>Russia</option>
-    </select>
-  </div>
-</div>
-
-<div class="">
-  <label class="col-md-3 control-label" for="">Upload Arhatic Preparatory Certificate</label>
-<div class="input-group col-md-4">
-                <input type="text" class="form-control" readonly="" style="border-radius: 1px;">
-                <label class="input-group-btn">
-                    <span class="btn btn-primary btn-browse">
-                        Browse… <input type="file" style="display: none;" multiple="">
-                    </span>
-                </label>
+<section class="suc_stories">
+     <div class="banner">
+       <img src="images/banner-1.jpg" alt="" />
+    </div> 
+       <div class="container">
+        <div class="row">
+           <div class="col-sm-12 col-md-12 ">
+                <h2>Arthatic Success Stories - Year 2017</h2>
             </div>
-</div>
-
-</fieldset>
-                <div class="form-group">
-                 <div class="col-md-12 col-sm-6 col-md-push-3 btn-both">
-    <button id="submit" name="submit" class="btn btn-login">Register</button>
-                     <button id="submit" name="submit" class="btn btn-grey">Cancel</button>
-  </div>
-                    
-                </div>
-            </form>
+           </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 fig_cap">
+               <figure>
+                   <img src="images/suc-1.jpeg" alt="" class="img-responsive">
+                   <figcaption>
+                    <h4>Name - Name</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id velit a mauris dignissim venenatis. Ut viverra vestibulum sapien id imperdiet.</p>
+                       <span class="btn">Read More</span>
+                   </figcaption>
+               </figure>
+            </div>
+            <div class="col-sm-6 col-md-4 fig_cap">
+               <figure>
+                   <img src="images/suc-1.jpeg" alt="" class="img-responsive">
+                   <figcaption>
+                    <h4>Name - Name</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id velit a mauris dignissim venenatis. Ut viverra vestibulum sapien id imperdiet.</p>
+                       <span class="btn">Read More</span>
+                   </figcaption>
+               </figure>
+            </div>
+            <div class="col-sm-6 col-md-4 fig_cap">
+               <figure>
+                   <img src="images/suc-1.jpeg" alt="" class="img-responsive">
+                   <figcaption>
+                    <h4>Name - Name</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id velit a mauris dignissim venenatis. Ut viverra vestibulum sapien id imperdiet.</p>
+                       <span class="btn">Read More</span>
+                   </figcaption>
+               </figure>
+            </div>
         </div>
-    </section>
+           <div class="row">
+            <div class="col-sm-6 col-md-4 fig_cap">
+               <figure>
+                   <img src="images/suc-1.jpeg" alt="" class="img-responsive">
+                   <figcaption>
+                    <h4>Name - Name</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id velit a mauris dignissim venenatis. Ut viverra vestibulum sapien id imperdiet.</p>
+                       <span class="btn">Read More</span>
+                   </figcaption>
+               </figure>
+            </div>
+            <div class="col-sm-6 col-md-4 fig_cap">
+               <figure>
+                   <img src="images/suc-1.jpeg" alt="" class="img-responsive">
+                   <figcaption>
+                    <h4>Name - Name</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id velit a mauris dignissim venenatis. Ut viverra vestibulum sapien id imperdiet.</p>
+                       <span class="btn">Read More</span>
+                   </figcaption>
+               </figure>
+            </div>
+            <div class="col-sm-6 col-md-4 fig_cap">
+               <figure>
+                   <img src="images/suc-1.jpeg" alt="" class="img-responsive">
+                   <figcaption>
+                    <h4>Name - Name</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id velit a mauris dignissim venenatis. Ut viverra vestibulum sapien id imperdiet.</p>
+                       <span class="btn">Read More</span>
+                   </figcaption>
+               </figure>
+            </div>
+        </div>
+           <div class="row">
+           <div class="pagi">
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+           </div>
+          </div>
+    </div>
+ </section>
      
         <!-- Footer -->
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-5">
                         <div class="footer-social-icons">
                            <ul class="social-icons">
                                 <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>|
@@ -243,15 +206,15 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3">
+                    <div class="col-sm-12 col-md-2">
                         <div class="copyright">
-                            <p>Copyright &copy; Your Website 2014</p>
+                            <p>Copyright &copy; Arthatic Matromony 2017 </p>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-5">
                         <div class="contact">
                             <ul>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>+91 0000000000</li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>+91 00000000</li>
                                 <li><i class="fa fa-envelope" aria-hidden="true"></i>arhaticticmatrimony@gmail.com</li>
                             </ul>
                         </div>

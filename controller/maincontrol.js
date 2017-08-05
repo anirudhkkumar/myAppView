@@ -48,7 +48,33 @@ app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
             method : "POST",
             url : url,
             data: {
-                "loginToken": usrData.loginToken
+                "loginToken": usrData.loginToken,
+            },
+            method : "POST",
+            url : url,
+            "basic": {
+                "firstName": $scope.firstname,
+                "middleName": $scope.middlename,
+                "lastName": $scope.lastname,
+                "DOB": $scope.dob,
+                "TOB": $scope.tob,
+                "complex": $scope.complex,
+                "disablity": $scope.disablity,
+                "gender": $scope.gender,
+                "aboutMe": $scope.aboutme,
+                "height": $scope.height,
+                "maritialStatus": $scope.martialstatus,
+                "belongsToCountry": $scope.,
+                "belongsToState": ,
+                "belongsToCity": ,
+                "currentToCountry": ,
+                "currentToState": ,
+                "currentToCity": ,
+                "profileManagedBy": ,
+                "languageknown": [
+                    "hindi",
+                    "english"
+                ]
             },
             headers: {'Content-Type': 'application/json'}
         }).then(function mySuccess(response) {
@@ -61,7 +87,9 @@ app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
             $scope.myWelcome = err.statusText;
             console.log(err);
         });
-    }    
+    } 
+    
+    
 });
 
 
@@ -86,4 +114,8 @@ function logout_func ($scope, $http, $window, usrData){
             $scope.myWelcome = err.statusText;
             console.log(err);
         });
+}
+
+function register_func ($scope, $http, $window){
+    
 }

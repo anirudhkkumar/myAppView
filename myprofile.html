@@ -13,12 +13,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="css/temp.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,7 +29,7 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
     <script src="js/env.js"></script>
     <script src="config.js"></script>
-    <script src="controller/maincontrol.js"></script>
+    <!--script src="controller/maincontrol.js"></script-->
 
 </head>
 
@@ -89,14 +89,14 @@
                         <li><a href="#">View all</a></li>
                     </ul>
                 </li>-->
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Search</a></li>
-                <li><a href="#">Success Stories</a></li> 
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Privacy</a></li>
+                <li><a href="index.html" class="">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="success_stories.html">Success Stories</a></li> 
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
             </ul>
             
         </div>
@@ -119,7 +119,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="selectbasic">Height</label>
   <div class="col-md-4">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+    <select ng-model="height" id="selectbasic" name="selectbasic" class="form-control input-md">
       <option>Select Height</option>
       <option></option>
     </select>
@@ -135,7 +135,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="selectbasic">Weight</label>
   <div class="col-md-4">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+    <select ng-model="weight" id="selectbasic" name="selectbasic" class="form-control input-md">
       <option>Select Weight (Kgs)</option>
       <option>30-50</option>
       <option>50-80</option>
@@ -185,22 +185,22 @@
 
 <div class="form-group">
   <label class="col-md-3 control-label" for="gender">Martial Status</label>
-  <div class="col-md-4"> 
+  <div class="col-md-6"> 
     <label class="radio-inline active" for="">
       <input type="radio" name="Male" id="" value="yes" checked="checked">
-      Male
+      Never Married
     </label> 
     <label class="radio-inline" for="">
       <input type="radio" name="Female" id="" value="no">
-      Female
+      Widowed
     </label>
     <label class="radio-inline" for="">
       <input type="radio" name="Female" id="" value="no">
-      Female
+      Divorced
     </label>
     <label class="radio-inline" for="">
       <input type="radio" name="Female" id="" value="no">
-      Female
+      Awaiting Divorce
     </label>
   </div>
 </div> 
@@ -317,11 +317,283 @@
  
 
 </div>
+                    
+<div class="pro_secs">
+<h4>Education & Occupation</h4>
 
+<div class="form-group">
+  <label class="col-md-3 control-label" for="selectbasic">Religion</label>
+  <div class="col-md-6">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select Education</option>
+      <option>Post Graduation</option>
+      <option>Graduation</option>
+        <option>Matic</option>
+    </select>
+  </div>
+</div>
+ <div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Employed In</label>
+  <div class="col-md-8"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      Government
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Private
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Bussiness
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Defence
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Self Employed
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Not Working
+    </label>
+  </div>
+</div> 
+<div class="form-group">
+  <label class="col-md-3 control-label" for="selectbasic">Occupation</label>
+  <div class="col-md-6">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select Occupation</option>
+      <option>Post Graduation</option>
+      <option>Graduation</option>
+        <option>Matic</option>
+    </select>
+  </div>
+</div>
+ <div class="form-group">
+  <label class="col-md-3 control-label" for="selectbasic">Income</label>
+  <div class="col-md-2">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select Currency</option>
+      <option>India - Rs.</option>
+      <option>USA - Doller</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+      <input id="ln" name="ln" type="text" placeholder="Whatsapp Contact Number" class="form-control input-md" required="">
+  </div>
+  <div class="col-md-3">
+   <label class="radio-inline active" for="">
+      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      Per Month
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Female" id="" value="no">
+      Per Year
+    </label>
+  </div>
+</div>
+
+</div>
+
+<div class="pro_secs">
+<h4>Family Profile</h4>
+
+ <div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Family Status</label>
+  <div class="col-md-8"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Middile Class" id="" value="yes" checked="checked">
+      Middile Class
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Uper Middile Class" id="" value="no">
+      Upper Middile Class
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Rich" id="" value="no">
+      Rich
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Affluent" id="" value="no">
+      Affluent
+    </label>
+  </div>
+</div> 
+<div class="form-group">
+  <label class="col-md-3 control-label" for="FamilyType">Family Type</label>
+  <div class="col-md-8"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Joint" id="" value="yes" checked="checked">
+      Joint
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Nuclear" id="" value="no">
+      Nuclear
+    </label>
+  </div>
+</div> 
+<div class="form-group">
+  <label class="col-md-3 control-label" for="gender">Family Values</label>
+  <div class="col-md-8"> 
+    <label class="radio-inline active" for="">
+      <input type="radio" name="Orthodox" id="" value="yes" checked="checked">
+      Orthodox
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Traditional" id="" value="no">
+      Traditional
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Moderate" id="" value="no">
+      Moderate
+    </label>
+    <label class="radio-inline" for="">
+      <input type="radio" name="Liberal" id="" value="no">
+      Liberal
+    </label>
+  </div>
+</div> 
+<div class="form-group">
+  <label class="col-md-3 control-label" for="">Family Values</label>
+  <div class="col-md-6"> 
+    <textarea class="form-control" id="exampleTextarea" rows="10" columns="50"></textarea>
+  </div>
+</div> 
+</div>
+
+<div class="pro_secs">
+<h4>About Myself</h4>
+   
+<div class="form-group">
+  <label class="col-md-3 control-label" for="">Something about me</label>
+  <div class="col-md-6"> 
+    <textarea class="form-control" id="exampleTextarea" rows="10" columns="50"></textarea>
+  </div>
+</div>
+<div class="form-group">
+    <div class="col-md-3 control-label" for="">Upload Pictures</div>
+    <div class="col-md-6">
+        <input type="text" class="form-control" readonly="" style="border-radius: 1px;">
+        <label class="input-group-btn">
+                    <span class="btn btn-primary btn-browse">
+                        Browse… <input type="file" style="display: none;" multiple="">
+                    </span>
+                </label>
+    </div>
+</div>
+</div>
+                    
+<div class="pro_secs">
+<h4>Pranic Healing & Arhatic Yoga</h4>
+<p>Course done in Pranic Healing</p>
+   
+<div class="form-group">
+  <div class="col-md-4">
+      <label class="control-label color_red" for="">Something about me</label>
+      <div class="checkbox">
+      <label>
+        <input type="checkbox"> Basic Pranic Healing
+      </label>
+          <label>
+        <input type="checkbox"> Advanced Pranic Healing
+      </label>
+          <label>
+        <input type="checkbox"> Pranic Psycotherapy
+      </label>
+          <label>
+        <input type="checkbox"> Pranic Crystal Healing
+      </label>
+          <label>
+        <input type="checkbox"> Pranic Psychic Self Defence
+      </label>
+          <label>
+        <input type="checkbox"> Pranic Facial Rejuvenation & Body Sculpting
+      </label>
+    </div>
+  </div>
+    <div class="col-md-4">
+      <label class="control-label color_red" for="">Spirituality Series</label>
+      <div class="checkbox">
+      <label>
+        <input type="checkbox"> Achieving Oneness With the Higher Soul
+      </label>
+          <label>
+        <input type="checkbox"> Arhatic Yoga
+      </label>
+          <label>
+        <input type="checkbox"> Higher Clairvoyance
+      </label>
+          <label>
+        <input type="checkbox"> Inner Teachings of Hinduism  Revealed
+      </label>
+          <label>
+        <input type="checkbox"> Inner Teachings of Christianity Revealed
+      </label>
+          <label>
+        <input type="checkbox"> Inner Teachings of Buddhism Revealed
+      </label>
+           <label>
+        <input type="checkbox"> Spiritual Essence Of Man
+      </label>
+           <label>
+        <input type="checkbox"> Lord's Prayer
+      </label>
+    </div>
+  </div>
+    <div class="col-md-4">
+      <label class="control-label color_red" for="">Prosperity Series</label>
+      <div class="checkbox">
+      <label>
+        <input type="checkbox"> Kriyashakti
+      </label>
+      <label>
+        <input type="checkbox"> Pranic Feng Shui
+      </label>
+      <label>
+        <input type="checkbox"> Spiritual Business Management
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label" for="">Practicing Arhatic Level</label>
+    <div class="col-md-5">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select Currency</option>
+      <option>India - Rs.</option>
+      <option>USA - Doller</option>
+    </select>
+  </div>
+</div>
+    <div class="form-group">
+    <label class="col-md-3 control-label" for="">Trainer</label>
+    <div class="col-md-3">
+        <label class="radio-inline active" for="">
+      <input type="radio" name="NO" id="" value="" checked="checked">
+      No
+    </label> 
+    <label class="radio-inline" for="">
+      <input type="radio" name="Yes" id="" value="no">
+      Yes
+    </label>
+    </div>
+    <div class="col-md-5">
+    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select</option>
+      <option>India - Rs.</option>
+      <option>USA - Doller</option>
+    </select>
+  </div>
+</div>
+</div>
 </fieldset>
                 <div class="form-group">
                  <div class="col-md-12 col-sm-6 col-md-push-3 btn-both">
-      <button id="next" name="next" class="btn btn-login">Next</button>
+    <button id="submit" name="submit" class="btn btn-login">Submit</button>
+                     <button id="submit" name="submit" class="btn btn-grey">Cancel</button>
   </div>
                     
                 </div>
