@@ -41,7 +41,6 @@ app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
           $window.location.href = "/login.html";
     }
     else{
-
         usrData = JSON.parse(usrData);
 
         $http({
