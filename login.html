@@ -46,7 +46,7 @@
                         <div class="input-group col-md-8 col-sm-12">
                         <input type="text" class="form-control input-lg search-bar" placeholder="Search" />
                         <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" type="button">
+                            <button class="btn btn-info btn-lg" type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
                         </span>
@@ -99,21 +99,21 @@
 					<div class="form-line">
 			  			<div class="form-group">
 			  				<label for="exampleInputUsername">User Name</label>
-					    	<input ng-model="username" type="text" class="form-control" id="" placeholder=" Enter Name">
+					    	<input ng-model="username" type="text" class="form-control" id="" placeholder=" Enter Name" required="">
 				  		</div>
 				  		<div class="form-group">
 					    	<label for="exampleInputEmail">Password</label>
-					    	<input ng-model="pass" type="password" class="form-control" id="exampleInputEmail" placeholder="Enter your passwords">
+					    	<input ng-model="pass" type="password" class="form-control" id="exampleInputEmail" placeholder="Enter your passwords" required="">
 					  	</div>
-                        <div class="text-fg">
+                       <!--  <div class="text-fg">
                             <span>Forget Your password?</span>
                         </div>
                         <div class="form-group">
 					    	
 					    	<input type="email" class="form-control" id="exampleInputEmail" placeholder=" Enter Email id">
-					  	</div>
+					  	</div> -->
                         <div class="form-group">
-			  				<button ng-click="usrname()" type="button" class="btn btn-login submit">Log In</button>
+			  				<button ng-click="usrname()" type="submit" class="btn btn-login submit">Log In</button>
                         </div>
                         <div class="checkbox">
                           <label><input type="checkbox" value="">Keep me logged in</label>
@@ -128,7 +128,7 @@
                 <div class="new-reg">
                     <h2>NEW REGISTRETION</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec leo id est mattis dignissim. Maecenas malesuada tempor sem id accumsan. Pellentesque ultrices ligula elit, non faucibus quam finibus blandit. Vestibulum sagittis augue in pretium facilisis. Aliquam erat volutpat. Integer elementum, eros sit amet eleifend volutpat, lorem eros tempus mi, nec elementum ex nulla quis eros. Pellentesque placerat libero non volutpat laoreet. Pellentesque finibus, lectus eget ultrices imperdiet, erat lacus tincidunt est, ut scelerisque lacus nisl sed turpis. </p>
-                    <a href="registretion_form.html"><button type="button" class="btn btn-login submit">Register Now</button></a>
+                    <a href="registretion_form.html"><button type="submit" class="btn btn-login submit">Register Now</button></a>
                 </div>
             </div>
            </div> 

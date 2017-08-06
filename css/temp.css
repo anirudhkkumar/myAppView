@@ -59,6 +59,9 @@ header.carousel .fill {
 .mega-nav.navbar-default .navbar-nav > li > a:hover {
     background: #b3225b;
 } 
+.mega-nav.navbar-default .navbar-nav > li > a:active {
+    background: #b3225b;
+} 
 .mega-nav.navbar-default .navbar-nav > li.dropdown > a:hover,
 .mega-nav.navbar-default .navbar-nav > li.dropdown > a:focus,
 .mega-nav.navbar-default .navbar-nav > li.dropdown > a:active{
@@ -361,7 +364,7 @@ footer .contact ul>li i.fa.fa-phone, .fa.fa-envelope {
     padding-top: 11px;
     padding-bottom: 10px;
     width: 40px;
-    padding-left: 13px;
+    padding-left: 10px;
     height: 40px;
     background: #971761;
     -moz-border-radius: 50px;
@@ -510,6 +513,7 @@ span.span_left {
 .coming_soon{
     text-align: center;
     margin: 10% 0;
+    padding-bottom: 100px;
 }
 /* Responsive Styles */
 

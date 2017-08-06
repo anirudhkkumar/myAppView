@@ -26,7 +26,6 @@ app.controller("logincontrol", function($scope, $http, $window, $document) {
     };
 });
 
-
 app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
 
     $scope.logout = function(){
@@ -47,14 +46,51 @@ app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
             method : "POST",
             url : url,
             data: {
-                "username": usrData.username,
+                "profId": usrData.profId,
                 "loginToken": usrData.loginToken
             },
             headers: {'Content-Type': 'application/json'}
         }).then(function mySuccess(response) {
 
-            $scope.myWelcome = response.data;
-            console.log(response.data);
+            $scope.myWelcome = response.data.data[0];
+            console.log(response.data.data[0]);
+            // $window.location.href = "/myprofile";
+        }, function myError(err) {
+            
+            $scope.myWelcome = err.statusText;
+            console.log(err);
+        });
+    }   
+});
+
+app.controller("editProfilecontrol", function($scope, $http, $window, $document) {
+
+    $scope.logout = function(){
+        logout_func($scope, $http, $window, usrData);
+    }
+
+    var url = __env.apiUrl + "/users/myProfile";
+
+    var usrData = localStorage.getItem('sessions');
+
+    if(!usrData){
+          $window.location.href = "/login.html";
+    }
+    else{
+        usrData = JSON.parse(usrData);
+
+        $http({
+            method : "POST",
+            url : url,
+            data: {
+                "profId": usrData.profId,
+                "loginToken": usrData.loginToken
+            },
+            headers: {'Content-Type': 'application/json'}
+        }).then(function mySuccess(response) {
+
+            $scope.myWelcome = response.data.data[0];
+            console.log(response.data.data[0]);
             // $window.location.href = "/myprofile";
         }, function myError(err) {
             
