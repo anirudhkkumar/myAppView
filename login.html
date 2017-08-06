@@ -86,6 +86,8 @@
         </div>
     </nav>
 
+<div ng-show="loader"> <h1>Loading ... </h1></div>
+
 </header>
     
     <section class="login">
@@ -108,10 +110,14 @@
                        <!--  <div class="text-fg">
                             <span>Forget Your password?</span>
                         </div>
+
                         <div class="form-group">
 					    	
 					    	<input type="email" class="form-control" id="exampleInputEmail" placeholder=" Enter Email id">
 					  	</div> -->
+                        <div class="form-group" ng-show="error">
+                             <span style="color: red"> {{errorLevel}} </span>
+                        </div>
                         <div class="form-group">
 			  				<button ng-click="usrname()" type="submit" class="btn btn-login submit">Log In</button>
                         </div>
@@ -128,7 +134,7 @@
                 <div class="new-reg">
                     <h2>NEW REGISTRETION</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec leo id est mattis dignissim. Maecenas malesuada tempor sem id accumsan. Pellentesque ultrices ligula elit, non faucibus quam finibus blandit. Vestibulum sagittis augue in pretium facilisis. Aliquam erat volutpat. Integer elementum, eros sit amet eleifend volutpat, lorem eros tempus mi, nec elementum ex nulla quis eros. Pellentesque placerat libero non volutpat laoreet. Pellentesque finibus, lectus eget ultrices imperdiet, erat lacus tincidunt est, ut scelerisque lacus nisl sed turpis. </p>
-                    <a href="registretion_form.html"><button type="submit" class="btn btn-login submit">Register Now</button></a>
+                    <a href="register.html"><button type="submit" class="btn btn-login submit">Register Now</button></a>
                 </div>
             </div>
            </div> 

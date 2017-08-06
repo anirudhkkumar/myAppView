@@ -19,8 +19,6 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,9 +27,15 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="js/env.js"></script>
+    <script src="config.js"></script>
+    <script src="controller/maincontrol.js"></script>
+
 </head>
 
-<body>
+<body ng-app="arthatic" ng-controller="registercontrol">
 
 <header>
         <div class="center-block">
@@ -99,7 +103,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="fn">Name</label>  
   <div class="col-md-4">
-  <input id="fn" name="fn" type="text" placeholder="Name" class="form-control input-md" required>
+  <input ng-modal="name" id="fn" name="fn" type="text" placeholder="Name" class="form-control input-md" required>
     
   </div>
 </div>
@@ -108,7 +112,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="ln">Choose Username</label>  
   <div class="col-md-4">
-  <input id="ln" name="ln" type="text" placeholder="Username" class="form-control input-md" required>
+  <input ng-model="username" id="ln" name="ln" type="text" placeholder="Username" class="form-control input-md" required>
     <label></label>
   </div>
     <div class="col-md-3"><a href="">Check Availability</a></div>
@@ -118,7 +122,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="cmpny">Choose Password</label>  
   <div class="col-md-4">
-  <input id="password" name="password" type="text" placeholder="Password" class="form-control input-md" required="">
+  <input ng-model="password" id="password" name="password" type="text" placeholder="Password" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -127,7 +131,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="email">Re-enter Password</label>  
   <div class="col-md-4">
-  <input id="password" name="password" type="text" placeholder="Re-enterPassword" class="form-control input-md" required="">
+  <input ng-model="password" id="password" name="password" type="text" placeholder="Re-enterPassword" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -137,11 +141,11 @@
   <label class="col-md-3 control-label" for="gender">Gender</label>
   <div class="col-md-4"> 
     <label class="radio-inline active" for="">
-      <input type="radio" name="Male" id="" value="yes" checked="checked">
+      <input ng-model="gender" type="radio" name="Male" id="" value="yes" checked="checked">
       Male
     </label> 
     <label class="radio-inline" for="">
-      <input type="radio" name="Female" id="" value="no">
+      <input ng-model="gender" type="radio" name="Female" id="" value="no">
       Female
     </label>
   </div>
@@ -151,7 +155,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="add1">Date of birth</label>  
   <div class="col-md-4">
-  <input id="add1" name="add1" type="text" placeholder="" class="form-control input-md" required="">
+  <input ng-model="dob" id="add1" name="add1" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -160,9 +164,13 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="selectbasic">Mother Tongue</label>
   <div class="col-md-4">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+    <select ng-model="mothertounge" id="selectbasic" name="selectbasic" class="form-control input-md">
       <option>Hindi</option>
       <option>Panjabi</option>
+      <option>Marathi</option>
+      <option>Gujrati</option>
+      <option>Bihari</option>
+      <option>Kanada</option>
     </select>
   </div>
 </div>
@@ -171,7 +179,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="">Mobile Number</label> 
   <div class="col-md-2">
-    <input id="mobile number" name="mobile number" type="text" placeholder="" class="form-control input-md">
+    <input ng-model="mobile" id="mobile number" name="mobile number" type="text" placeholder="" class="form-control input-md">
   </div>
   <div class="col-md-4">
   <input id="mobile number" name="mobile number" type="text" placeholder="" class="form-control input-md">
@@ -185,7 +193,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="">Country</label>
   <div class="col-md-4">
-    <select id="Country" name="Country" class="form-control input-md">
+    <select  ng-model="country" id="Country" name="Country" class="form-control input-md">
       <option>India</option>
       <option>Russia</option>
     </select>
@@ -207,9 +215,9 @@
 </fieldset>
                 <div class="form-group">
                  <div class="col-md-12 col-sm-6 col-md-push-3 btn-both">
-    <button id="submit" name="submit" class="btn btn-login">Register</button>
+                     <button ng-click="register()" type="submit" id="submit" name="submit" class="btn btn-login">Register</button>
                      <button id="submit" name="submit" class="btn btn-grey">Cancel</button>
-  </div>
+                 </div>
                     
                 </div>
             </form>
