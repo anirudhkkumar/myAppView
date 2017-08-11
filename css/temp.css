@@ -352,6 +352,7 @@ footer .contact ul>li i.fa.fa-phone, .fa.fa-envelope {
 .login {
     padding: 4% 0 10% 0;
     display: block;
+    overflow-x: hidden;
 }
 .form-brdr{
     border-right: 1px solid #971761;
@@ -380,9 +381,38 @@ footer .contact ul>li i.fa.fa-phone, .fa.fa-envelope {
     background: transparent!important;
     padding-right: 55px;
 }
+form .form-group .input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+select option[data-default] {
+  color: #d3d3d3;
+}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
 form .form-group .form-control {
     display: block;
-    width: 90%;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -463,7 +493,28 @@ form .btn-grey {
     text-align: left; 
     font-weight: 100;
 }
-
+.image-preview-input {
+    position: relative;
+  overflow: hidden;
+  margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
 span.span_left {
     float: right;
 }
@@ -514,6 +565,16 @@ span.span_left {
     text-align: center;
     margin: 10% 0;
     padding-bottom: 100px;
+}
+
+
+/* Utility Components */
+
+.rm-pd-right{
+    padding-right: 0px;
+}
+.rm-pd-left{
+    padding-left: 0px;
 }
 /* Responsive Styles */
 

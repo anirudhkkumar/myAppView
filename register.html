@@ -20,14 +20,16 @@
     
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="js/env.js"></script>
     <script src="config.js"></script>
@@ -96,131 +98,169 @@
             <form class="form-horizontal">
                 <fieldset>
 
-<!-- Form Name -->
-<legend>New Registration</legend>
+                <!-- Form Name -->
+                <legend>New Registration</legend>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="fn">Name</label>  
-  <div class="col-md-4">
-  <input ng-model="name" id="fn" name="fn" type="text" placeholder="Name" class="form-control input-md" required>
-    
-  </div>
-</div>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="fn">Full Name</label>  
+                  <div class="col-md-5">
+                  <input ng-model="name" id="fn" name="fn" type="text" placeholder="Name" class="form-control input-md" required>
+                  </div>
+                </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="ln">Choose Username</label>  
-  <div class="col-md-4">
-  <input ng-model="username" id="ln" name="ln" type="text" placeholder="Username" class="form-control input-md" required>
-    <label></label>
-  </div>
-    <div class="col-md-3"><a href="">Check Availability</a></div>
-</div>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="ln">Choose Username</label>  
+                  <div class="col-md-5">
+                  <input ng-model="username" id="ln" name="ln" type="text" placeholder="Username" class="form-control input-md" required>
+                  </div>
+                    <div class="col-md-3"><a href="">Check Availability</a></div>
+                </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="cmpny">Choose Password</label>  
-  <div class="col-md-4">
-  <input ng-model="password" id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="email">Re-enter Password</label>  
-  <div class="col-md-4">
-  <input ng-model="password" id="password" name="password" type="password" placeholder="Re-enterPassword" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="gender">Gender</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline active" for="">
-      <input ng-model="gender" type="radio" name="Male" id="" value="yes" checked="checked">
-      Male
-    </label> 
-    <label class="radio-inline" for="">
-      <input ng-model="gender" type="radio" name="Female" id="" value="no">
-      Female
-    </label>
-  </div>
-</div>               
-
-<!-- Date-picker input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="add1">Date of birth</label>  
-  <div class="col-md-4">
-  <input ng-model="dob" id="add1" name="add1" type="text" placeholder="" class="form-control input-md" required="">
-    
-  </div>
-</div>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="cmpny">Choose Password</label>  
+                  <div class="col-md-5">
+                  <input ng-model="password" id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="">
                     
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="selectbasic">Mother Tongue</label>
-  <div class="col-md-4">
-    <select ng-model="mothertounge" id="selectbasic" name="selectbasic" class="form-control input-md">
-      <option>Hindi</option>
-      <option>Panjabi</option>
-      <option>Marathi</option>
-      <option>Gujrati</option>
-      <option>Bihari</option>
-      <option>Kanada</option>
-    </select>
-  </div>
-</div>
+                  </div>
+                </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="">Mobile Number</label> 
-  <div class="col-md-2">
-    <input  id="mobile number" name="mobile number" value="+91" type="text" placeholder="" class="form-control input-md">
-  </div>
-  <div class="col-md-4">
-  <input ng-model="mobile" id="mobile number" name="mobile number" type="text" placeholder="" class="form-control input-md">
-  </div>
-    <div class="col-md-3">
-        <span><a href="">Send Verfication Code</a></span>
-    </div>
-</div>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="email">Re-enter Password</label>  
+                  <div class="col-md-5">
+                  <input ng-model="password" id="password" name="password" type="password" placeholder="Re-enterPassword" class="form-control input-md" required="">
+                    
+                  </div>
+                </div>
 
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="">Country</label>
-  <div class="col-md-4">
-    <select  ng-model="country" id="Country" name="Country" class="form-control input-md">
-      <option>India</option>
-      <option>Russia</option>
-    </select>
-  </div>
-</div>
+                <!-- Multiple Radios (inline) -->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="gender">Gender</label>
+                  <div class="col-md-5"> 
+                    <label class="radio-inline active" for="">
+                      <input ng-model="gender" type="radio" name="Male" id="" value="yes" checked="checked">
+                      Male
+                    </label> 
+                    <label class="radio-inline" for="">
+                      <input ng-model="gender" type="radio" name="Female" id="" value="no">
+                      Female
+                    </label>
+                  </div>
+                </div>               
 
-<div class="">
-  <label class="col-md-3 control-label" for="">Upload Arhatic Preparatory Certificate</label>
-<div class="input-group col-md-4">
-                <input type="text" class="form-control" readonly="" style="border-radius: 1px;">
-                <label class="input-group-btn">
-                    <span class="btn btn-primary btn-browse">
-                        Browse… <input type="file" style="display: none;" multiple="">
-                    </span>
-                </label>
-            </div>
-</div>
+                <!-- Date-picker input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="add1">Date of birth</label>  
+                  <div class="col-md-5">
+                    <div class="inner-addon right-addon date">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                      <input type="text" class="datepicker form-control" data-date-format="mm/dd/yyyy" value="mm/dd/yyyy">
+                    </div>
+                  </div>
+                </div>
+                                    
+                <!-- Select Basic -->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="selectbasic">Mother Tongue</label>
+                  <div class="col-md-5">
+                    <select ng-model="mothertounge" id="selectbasic" name="selectbasic" class="form-control input-md" placeholder="Select an option">
+                      <option value="" selected data-default>Select a Mothertounge</option>
+                      <option>Hindi</option>
+                      <option>English</option>
+                      <option>Gujarati</option>
+                      <option>Punjabi</option>
+                      <option>Bengali</option>
+                      <option>Assamese</option>
+                      <option>Dogri, Urdu</option>
+                      <option>Oriya</option>
+                      <option>Marathi</option>
+                      <option>Kannada</option>
+                      <option>Tamil</option>
+                      <option>Telugu</option>
+                      <option>Malayalam</option>
+                      <option>Sindhi</option>
+                      <option>Konkani</option>
+                      <option>Manipuri</option>
+                      <option>Khasi</option>
+                      <option>Mizo</option>
+                      <option>Bhojpuri</option>
+                    </select>
+                  </div>
+                </div>
 
-</fieldset>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="">Mobile Number</label> 
+                  <div class="col-md-1 rm-pd-right">
+                    <input  id="mobile number" name="mobile number" value="+91" type="text"  class="form-control input-md" disabled="">
+                  </div>
+                  <div class="col-md-4">
+                  <input ng-model="mobile" id="mobile number" name="mobile number" type="text" placeholder="Enter Mobile Number" class="form-control input-md">
+                  </div>
+                    <div class="col-md-3">
+                        <span><a href="">Send Verfication Code</a></span>
+                    </div>
+                </div>
+
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="">Country</label>
+                  <div class="col-md-5">
+                    <select ng-model="country" id="Country" value="Select Country" name="Country" class="form-control input-md">
+                      <option value="" disabled selected>Select Country</option>
+                      <option>India</option>
+                      <option>Nepal</option>
+                      <option>Bangladesh</option>
+                      <option>Sri lanka</option>
+                      <option>Myanmaar</option>
+                      <option>China</option>
+                      <option>Japan</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <label class="col-md-5 control-label rm-pd-left" for="" style="padding-right: 35px;">Upload Arhatic Preparatory Certificate</label>
+                <div class="col-xs-12 col-md-7 col-sm-8">  
+            <!-- image-preview-filename input [CUT FROM HERE]-->
+            <div class="input-group image-preview">
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                    </div>
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]--> 
+        </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for=""></label>
+                  <div class="col-md-5">
+                    <div class="g-recaptcha" data-sitekey="6LdjQigUAAAAANS8EqorRJWbnWgkiLTw8xtZI-FA"></div>
+                  </div>
+                </div> 
+                </fieldset>
                 <div class="form-group">
                  <div class="col-md-12 col-sm-6 col-md-push-3 btn-both">
                      <button ng-click="register()" type="submit" id="submit" name="submit" class="btn btn-login">Register</button>
-                     <button id="submit" name="submit" class="btn btn-grey">Cancel</button>
+                     <button onclick= "location.href='index.html';" id="cancel" name="submit" class="btn btn-grey" href="index.html">Cancel</button>
                  </div>
                     
                 </div>
             </form>
+
         </div>
     </section>
      
@@ -258,11 +298,22 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+      $.fn.datepicker.defaults.format = "mm/dd/yyyy";
+      $('.datepicker').datepicker({
+          startDate: '-3d'
+      });
+    </script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    
-  
+    <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript">
+    document.getElementById("cancel").onclick = function () {
+        location.href = "index.html";
+    };
+  </script>
 </body>
 
 </html> 
