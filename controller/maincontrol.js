@@ -5,7 +5,7 @@ app.controller("logincontrol", function($scope, $http, $window, $document) {
     $scope.usrname = function(){
         var url = __env.apiUrl + "/users/login";
        
-        if($scope.username && $scope.pass){
+        if($scope.username && $scope.pass && $('#g-recaptcha-response').val()){
              $scope.loader = true;
 
             $http({
@@ -39,9 +39,8 @@ app.controller("logincontrol", function($scope, $http, $window, $document) {
 
         }
         else{
-            alert("Please enter correct required fields");
-        }
-        
+            alert("Please enter correct required fields and Recaptcha");
+        }       
     };
 });
 
@@ -71,6 +70,14 @@ app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
             headers: {'Content-Type': 'application/json'}
         }).then(function mySuccess(response) {
 
+            var dob = response.data.data[0].basic.DOB;
+            var currentdate = new Date();
+            var dateTime = new Date(dob.split('/')[2], dob.split('/')[1], dob.split('/')[0]);
+
+            var timeDiff = Math.abs(currentdate.getTime() - dateTime.getTime());
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            var age = (diffDays / 365).toString().split(".")[0];
+
             $scope.basic = response.data.data[0].basic;
             $scope.profileStatus = response.data.data[0].profileStatus;
             $scope.education = response.data.data[0].education;
@@ -81,12 +88,9 @@ app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
             $scope.desiredPartner = response.data.data[0].desiredPartner;
             $scope.parnicYoga = response.data.data[0].parnicYoga;
             $scope.profileImage = response.data.data[0].profileImage;
-            $scope.age = response.data.data[0].basic.DOB;
-
-            var date = new Date(response.data.data[0].basic.DOB);
-
-            console.log(date);
-            // $window.location.href = "/myprofile";
+            $scope.age = age;
+            $scope.userid = response.data.data[0].userid;
+            
         }, function myError(err) {
             
             $scope.myWelcome = err.statusText;
@@ -132,12 +136,14 @@ app.controller("editProfilecontrol", function($scope, $http, $window, $document)
     }   
 });
 
-//
 app.controller("registercontrol", function($scope, $http, $window, $document) {
     $scope.register = function(){
         var url = __env.apiUrl + "/users/register";
-        console.log($scope.name, $scope.username, $scope.password , $scope.gender , $scope.dob ,$scope.mothertounge ,$scope.mobile , $scope.country);
-        if($scope.name && $scope.username && $scope.password && $scope.gender && $scope.dob && $scope.mothertounge && $scope.mobile && $scope.country){
+
+        console.log($scope.name, $scope.username, $scope.password , $scope.gender , $scope.dob ,$scope.mothertounge ,$scope.mobile , $scope.country, $('#g-recaptcha-response').val());
+        if($scope.password != $scope.repassword){
+            alert("password does not match with re-type-password");
+        } else if($scope.name && $scope.username && $scope.password && $scope.gender && $scope.dob && $scope.mothertounge && $scope.mobile && $scope.country){
 
             var data = {
                 "name": $scope.name,
@@ -165,7 +171,6 @@ app.controller("registercontrol", function($scope, $http, $window, $document) {
                 $scope.usrData = err.statusText;
                 console.log(err);
             });
-
         }
         else{
             alert("Please enter correct required fields");
@@ -173,7 +178,7 @@ app.controller("registercontrol", function($scope, $http, $window, $document) {
         
     };
 });
-//
+
 function logout_func ($scope, $http, $window, usrData){
      var url = __env.apiUrl + "/users/logout";
         $http({
