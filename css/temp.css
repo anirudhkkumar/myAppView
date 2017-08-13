@@ -201,6 +201,18 @@ header.carousel .fill {
 .banner > img{
     width: 100%;
 }
+.banner figure figcaption {
+    height: 14%;
+    background: rgba(106, 51, 82, 0.46);
+    position: absolute;
+    top: 362px;
+    width: 100%;
+    color: #ffffff;
+    padding: 10px 40px;
+}
+.banner figure h4.heading {
+    font-size: 40px!important;
+}
 .contact h3 {
     text-align: center;
     padding: 20px;
@@ -327,7 +339,7 @@ ul.social-icons {
 
 footer .copyright, .contact {
     display: block;
-    margin: 17px 0 17px 0;
+    margin: 40px 0 20px 0;
     margin-bottom: 10%;
 }
 footer .copyright{
@@ -576,6 +588,132 @@ span.span_left {
 .rm-pd-left{
     padding-left: 0px;
 }
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 0 10px 0;
+}
+.btn-color {
+    color: #ffffff;
+    background-color: #971761;
+    border-radius: 1px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/***************List and Grid View CSS **************************/
+section.list_grid {
+    margin-top: 28px;
+}
+.span_left .pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 0px 0;
+    border-radius: 4px;
+}
+#container ul { list-style: none; }
+#container .buttons { margin-bottom: 20px; }
+#container .buttons a {
+    color: #999999;
+    text-decoration: none;
+    font-size: 24px;
+}
+#container .list div { width: 100%; border-bottom: 1px dotted #CCC; margin-bottom: 10px; padding-bottom: 10px; }
+
+#container .grid div {
+    float: left;
+    width: 18%;
+    text-align: center;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    margin: 0 20px 20px 0;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+}
+#container .grid img{
+    width: 100%;
+}
+#container .grid h2 {
+    font-size: 20px;
+}
+#container .grid h4 {
+    font-size: 18px;
+    margin-top: 0;
+}
+.list_grid .well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 0px solid #e3e3e3;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+}
+.list_grid .well .btn-default {
+    color: #333;
+    background-color: transparent;
+    border-color: transparent;
+}
+.list-group-item .list-group-item-heading {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.grid-group-item .list-group-item-heading {
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
+}
+
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item:nth-of-type(odd)
+{
+    background: #eeeeee;
+}
+
+
+
+/********************************* End list and Grid CSS ****************************/
 /* Responsive Styles */
 
 @media(max-width:991px) {
