@@ -282,7 +282,7 @@ function search ($scope, $http, $window, usrData){
 
             console.log(response.data.data[0]);
             $scope.myWelcome = response.data.data[0];
-           // $window.location.href = "/search.html";
+            $window.location.href = "/search.html";
 
         }, function myError(err) {
 
