@@ -95,7 +95,7 @@
 <div class="pro_secs">
   <div class="row">
     <div class="col-md-4">
-      <img src="images/avatar.jpg" alt="" />
+      <img ng-model="profilePic" ng-src="{{profilePic}}" alt="" />
     </div>
     <div class="col-md-5">
       <h4>{{ basic.firstName }}</h4>
@@ -226,19 +226,19 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="ln">Native Place</label>  
   <div class="col-md-4">
-    <p>{{basic.belongsToCity}}</p>
+    <p>{{basic.belongsToCity }}</p>
   </div>
 </div>
  <div class="form-group">
   <label class="col-md-3 control-label" for="ln">Current City</label>  
   <div class="col-md-4">
-  <p>{{basic.currentToCity}}</p>
+  <p>{{basic.currentToCity }}</p>
   </div>
 </div>
 <div class="form-group">
   <label class="col-md-3 control-label" for="ln">Current State</label>  
   <div class="col-md-4">
-    <p>{{basic. }}</p>
+    <p>{{basic.currentToState }}</p>
   </div>
 </div>
  

@@ -50,7 +50,7 @@
                     </div>
                     <div class="menu-sub">
                          <ul>
-                        <li><a href="">welcome, {{ myWelcome.basic.firstName }}</a></li>|
+                        <li><a href="">welcome, {{ basic.firstName }}</a></li>|
                         <li><a href="" ng-click="logout()">Logout</a></li>
                     </ul>
                     </div>
@@ -552,7 +552,7 @@
 </fieldset>
                 <div class="form-group">
                  <div class="col-md-12 col-sm-6 col-md-push-3 btn-both">
-    <button id="submit" name="submit" class="btn btn-login">Submit</button>
+    <button id="submit" name="submit" class="btn btn-login" ng-click="updateProfile()">Submit</button>
                      <button id="submit" name="submit" class="btn btn-grey">Cancel</button>
   </div>
                     
