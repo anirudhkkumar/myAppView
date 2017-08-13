@@ -155,7 +155,6 @@ app.controller("registercontrol", function($scope, $http, $window, $document) {
                 "mobile": $scope.mobile,
                 "country": $scope.country
             };
-
             $http({
                 method : "POST",
                 url : url,
