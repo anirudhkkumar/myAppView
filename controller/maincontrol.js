@@ -128,6 +128,18 @@ app.controller("editProfilecontrol", function($scope, $http, $window, $document)
             $scope.myWelcome = response.data.data[0];
             console.log(response.data.data[0]);
             // $window.location.href = "/myprofile";
+             $scope.basic = response.data.data[0].basic;
+            $scope.profileStatus = response.data.data[0].profileStatus;
+            $scope.education = response.data.data[0].education;
+            $scope.family = response.data.data[0].family;
+            $scope.professional = response.data.data[0].professional;
+            $scope.lifeStyle = response.data.data[0].lifeStyle;
+            $scope.contact = response.data.data[0].contact;
+            $scope.desiredPartner = response.data.data[0].desiredPartner;
+            $scope.parnicYoga = response.data.data[0].parnicYoga;
+            $scope.profileImage = response.data.data[0].profileImage;
+            $scope.age = age;
+            $scope.userid = response.data.data[0].userid;
         }, function myError(err) {
             
             $scope.myWelcome = err.statusText;
@@ -200,4 +212,3 @@ function logout_func ($scope, $http, $window, usrData){
             console.log(err);
         });
 }
-
