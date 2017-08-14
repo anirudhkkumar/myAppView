@@ -53,6 +53,7 @@ app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
     var url = __env.apiUrl + "/users/myProfile";
 
     var usrData = localStorage.getItem('sessions');
+    var usrProfile = localStorage.getItem('profiles');
 
     if(!usrData){
           $window.location.href = "/login.html";
@@ -60,54 +61,33 @@ app.controller("myProfilecontrol", function($scope, $http, $window, $document) {
     else{
         usrData = JSON.parse(usrData);
 
-        $http({
-            method : "POST",
-            url : url,
-            data: {
-                "profId": usrData.profId,
-                "loginToken": usrData.loginToken
-            },
-            headers: {'Content-Type': 'application/json'}
-        }).then(function mySuccess(response) {
+        if(!usrProfile){
 
-            var dob = response.data.data[0].basic.DOB;
-            var currentdate = new Date();
-            var dateTime = new Date(dob.split('/')[2], dob.split('/')[1], dob.split('/')[0]);
+            $http({
+                method : "POST",
+                url : url,
+                data: {
+                    "profId": usrData.profId,
+                    "loginToken": usrData.loginToken
+                },
+                headers: {'Content-Type': 'application/json'}
+            }).then(function mySuccess(response) {
 
-            var timeDiff = Math.abs(currentdate.getTime() - dateTime.getTime());
-            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            var age = (diffDays / 365).toString().split(".")[0];
+                localStorage.setItem('profiles', JSON.stringify(response.data.data[0]));
 
-            localStorage.setItem('profiles', JSON.stringify(response.data.data[0]));
+                loadProfileScope($scope, response.data.data[0]);
 
-            $scope.basic = response.data.data[0].basic;
-            $scope.profileStatus = response.data.data[0].profileStatus;
-            $scope.education = response.data.data[0].education;
-            $scope.family = response.data.data[0].family;
-            $scope.professional = response.data.data[0].professional;
-            $scope.lifeStyle = response.data.data[0].lifeStyle;
-            $scope.contact = response.data.data[0].contact;
-            $scope.desiredPartner = response.data.data[0].desiredPartner;
-            $scope.parnicYoga = response.data.data[0].parnicYoga;
-            $scope.profileImage = response.data.data[0].profileImage;
-            $scope.age = age;
-            $scope.userid = response.data.data[0].userid;
+            }, function myError(err) {
 
-            if(response.data.data[0].profileImage){
-                $scope.profilePic = response.data.data[0].profileImage;
-            }else{
-                if(response.data.data[0].basic.gender == "Male"){
-                    $scope.profilePic = "images/mavatar.jpg";
-                }
-                else{
-                    $scope.profilePic = "images/favatar.png";
-                }
-            }
-        }, function myError(err) {
-            
-            $scope.myWelcome = err.statusText;
-            console.log(err);
-        });
+                alert("could not load profile, contact to admin");
+                $scope.errorLevel = err.statusText;
+                logout_func ($scope, $http, $window, usrData);
+            });
+        }else{
+            usrProfile = JSON.parse(usrProfile);
+            loadProfileScope($scope, usrProfile);
+
+        }
     }   
 });
 
@@ -145,24 +125,14 @@ app.controller("editProfilecontrol", function($scope, $http, $window, $document)
             headers: {'Content-Type': 'application/json'}
         }).then(function mySuccess(response) {
 
-            $scope.myWelcome = response.data.data[0];
-            console.log(response.data.data[0]);
-            // $window.location.href = "/myprofile";
-            $scope.basic = response.data.data[0].basic;
-            $scope.profileStatus = response.data.data[0].profileStatus;
-            $scope.education = response.data.data[0].education;
-            $scope.family = response.data.data[0].family;
-            $scope.professional = response.data.data[0].professional;
-            $scope.lifeStyle = response.data.data[0].lifeStyle;
-            $scope.contact = response.data.data[0].contact;
-            $scope.desiredPartner = response.data.data[0].desiredPartner;
-            $scope.parnicYoga = response.data.data[0].parnicYoga;
-            $scope.profileImage = response.data.data[0].profileImage;
-            $scope.userid = response.data.data[0].userid;
+            loadProfileScope($scope, response.data.data[0]);
+
         }, function myError(err) {
             
-            $scope.myWelcome = err.statusText;
-            console.log(err);
+            alert("could not load profile, contact to admin");
+            $scope.errorLevel = err.statusText;
+            $window.location.href = "/myprofile.html";
+
         });
     }   
 });
@@ -282,7 +252,7 @@ function search ($scope, $http, $window, usrData){
 
             console.log(response.data.data[0]);
             $scope.myWelcome = response.data.data[0];
-            $window.location.href = "/search.html";
+            $window.location.href = "/searchresult.html";
 
         }, function myError(err) {
 
@@ -406,13 +376,59 @@ function updateProfile ($scope, $http, $window, usrData){
             headers: {'Content-Type': 'application/json'}
         }).then(function mySuccess(response) {
 
-            $scope.myWelcome = response.data;
-            //console.log(response.data.data);
-            localStorage.removeItem('sessions');
+            console.log(response.data.data[0]);
+            localStorage.removeItem('profiles');
             $window.location.href = "/myprofile.html";
+
         }, function myError(err) {
 
-            $scope.myWelcome = err.statusText;
-            console.log(err);
+            alert("could not update profile, contact to admin");
+            $scope.errorLevel = err.statusText;
+            $window.location.href = "/myprofile.html";
         });
+}
+
+function calculateAge(dob){
+    var currentdate = new Date();
+    var dateTime = new Date(dob.split('/')[2], dob.split('/')[1], dob.split('/')[0]);
+
+    var timeDiff = Math.abs(currentdate.getTime() - dateTime.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    return (diffDays / 365).toString().split(".")[0];
+}
+
+function loadProfileScope($scope, data){
+
+        var dob                 = data.basic.DOB;
+        var age                 = calculateAge(dob);
+        var height              = data.basic.height;
+        
+        if(height){
+            height              = Number(height.split(" ")[0]);
+        }
+
+        $scope.basic            = data.basic;
+        $scope.profileStatus    = data.profileStatus;
+        $scope.education        = data.education;
+        $scope.family           = data.family;
+        $scope.professional     = data.professional;
+        $scope.lifeStyle        = data.lifeStyle;
+        $scope.contact          = data.contact;
+        $scope.desiredPartner   = data.desiredPartner;
+        $scope.parnicYoga       = data.parnicYoga;
+        $scope.profileImage     = data.profileImage;
+        $scope.userid           = data.userid;
+        $scope.age              = age;
+        $scope.height           = height;
+
+        if(data.profileImage){
+            $scope.profilePic   = data.profileImage;
+        }else{
+            if(data.basic.gender == "Male"){
+                $scope.profilePic = "images/mavatar.jpg";
+            }
+            else{
+                $scope.profilePic = "images/favatar.png";
+            }
+        }
 }

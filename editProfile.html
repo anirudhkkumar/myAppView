@@ -93,48 +93,95 @@
 <div class="pro_secs">
 <h4>Physical Attribute</h4>
 <div class="form-group">
-  <label class="col-md-3 control-label" for="selectbasic">Height</label>
+  <label class="col-md-3 control-label" for="selectbasic">Height (cm)</label>
   <div class="col-md-4">
-    <input ng-model="basic" ng-value="basic.height" id="selectbasic" name="selectbasic" class="form-control input-md">
-      <!-- <optson>Select Height</option>
-      <option></option>
-    </select> -->
+    <input ng-model="height" ng-value="height" type="number" step="0.01" min="152" id="selectbasic" type="decimal" name="selectbasic" class="form-control input-md">
   </div>
-  <!-- <div class="col-md-4">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
-      <option>Cms.</option>
-      <option></option>
-    </select>
-  </div> -->
   </div>
 
 <div class="form-group">
-  <label class="col-md-3 control-label" for="selectbasic">Weight</label>
-  <div class="col-md-4">
-    <select ng-model="weight" id="selectbasic" name="selectbasic" class="form-control input-md">
-      <option>Select Weight (Kgs)</option>
-      <option>30-50</option>
-      <option>50-80</option>
-    </select>
-  </div>
-  </div>
+    <label class="col-md-3 control-label" for="selectbasic">Weight</label>
+    <div class="col-md-4">
+      <select ng-model="basic.weight" id="weight" name="weight" class="form-control input-md">
+        <option>Select Weight (Kgs)</option>
+        <option>40 kg</option>
+        <option>45 kg</option>
+        <option>46 kg</option>
+        <option>47 kg</option>
+        <option>48 kg</option>
+        <option>49 kg</option>
+        <option>50 kg</option>
+        <option>51 kg</option>
+        <option>52 kg</option>
+        <option>53 kg</option>
+        <option>54 kg</option>
+        <option>55 kg</option>
+        <option>56 kg</option>
+        <option>57 kg</option>
+        <option>58 kg</option>
+        <option>59 kg</option>
+        <option>60 kg</option>
+        <option>61 kg</option>
+        <option>62 kg</option>
+        <option>63 kg</option>
+        <option>64 kg</option>
+        <option>65 kg</option>
+        <option>66 kg</option>
+        <option>67 kg</option>
+        <option>68 kg</option>
+        <option>69 kg</option>
+        <option>70 kg</option>
+        <option>71 kg</option>
+        <option>72 kg</option>
+        <option>73 kg</option>
+        <option>74 kg</option>
+        <option>75 kg</option>
+        <option>76 kg</option>
+        <option>77 kg</option>
+        <option>78 kg</option>
+        <option>79 kg</option>
+        <option>80 kg</option>
+        <option>81 kg</option>
+        <option>82 kg</option>
+        <option>83 kg</option>
+        <option>84 kg</option>
+        <option>85 kg</option>
+        <option>86 kg</option>
+        <option>87 kg</option>
+        <option>88 kg</option>
+        <option>89 kg</option>
+        <option>90 kg</option>
+        <option>91 kg</option>
+        <option>92 kg</option>
+        <option>93 kg</option>
+        <option>94 kg</option>
+        <option>95 kg</option>
+        <option>96 kg</option>
+        <option>97 kg</option>
+        <option>98 kg</option>
+        <option>99 kg</option>
+       <option>100 kg</option>
+      </select>
+    </div>
+</div>
+
 <div class="form-group">
   <label class="col-md-3 control-label" for="gender">Complexity</label>
   <div class="col-md-4"> 
     <label class="radio-inline active" for="">
-      <input ng-model="basic.complex" type="radio" name="Very Fair" id="" value="1" checked="checked">
+      <input ng-model="basic.complex" type="radio" name="complex" value="Very Fair" ng-checked="(basic.complex == 'Very Fair')">
       Very Fair
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="basic.complex" type="radio" name="Fair" id="" value="2">
+      <input ng-model="basic.complex" type="radio" name="complex" value="Fair" ng-checked="(basic.complex == 'Fair')">
       Fair
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="basic.complex" type="radio" name="Wheatish" id="" value="3">
+      <input ng-model="basic.complex" type="radio" name="complex" value="Wheatish" ng-checked="(basic.complex == 'Wheatish')">
       Wheatish
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="basic.complex" type="radio" name="Dark" id="" value="4">
+      <input ng-model="basic.complex" type="radio" name="complex" value="Dark" ng-checked="(basic.complex == 'Dark')">
       Dark
     </label>
   </div>
@@ -144,11 +191,11 @@
   <label class="col-md-3 control-label" for="gender">Any Disability</label>
   <div class="col-md-4"> 
     <label class="radio-inline active" for="">
-      <input ng-model="basic.disablity" type="radio" name="Male" id="" value="1" checked="checked">
+      <input ng-model="basic.disablity" type="radio" name="disablity" value="Normal" ng-checked="(basic.disablity == 'Dark')">
       Normal
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="basic.disablity" type="radio" name="Female" id="" value="2">
+      <input ng-model="basic.disablity" type="radio" name="disablity" value="Physically Challanged" ng-checked="(basic.disablity == 'Physically Challanged')">
       Physically Challanged
     </label>
   </div>
@@ -163,19 +210,19 @@
   <label class="col-md-3 control-label" for="gender">Martial Status</label>
   <div class="col-md-6"> 
     <label class="radio-inline active" for="">
-      <input ng-model="basic.maritialStatus" type="radio" name="Never Married" id="" value="1">
+      <input ng-model="basic.maritialStatus" type="radio" name="maritialStatus" value="Never Married" ng-checked="(basic.disablity == 'Never Married')">
       Never Married
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="basic.maritialStatus" type="radio" name="Widowed" id="" value="2">
+      <input ng-model="basic.maritialStatus" type="radio" name="maritialStatus" value="Widowed" ng-checked="(basic.disablity == 'Widowed')">
       Widowed
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="basic.maritialStatus" type="radio" name="Divorced" id="" value="3">
+      <input ng-model="basic.maritialStatus" type="radio" name="maritialStatus" value="Divorced" ng-checked="(basic.disablity == 'Divorced')">
       Divorced
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="basic.maritialStatus" type="radio" name="Awaiting Divorce" id="" value="4">
+      <input ng-model="basic.maritialStatus" type="radio" name="maritialStatus" value="Awaiting Divorce" ng-checked="(basic.disablity == 'Awaiting Divorce')">
       Awaiting Divorce
     </label>
   </div>
@@ -183,17 +230,25 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="selectbasic">Religion</label>
   <div class="col-md-4">
-    <input ng-model="religions.name" id="selectbasic" name="selectbasic" class="form-control input-md">
-      <!-- <option>Select</option>
-      <option>Hindi</option>
+    <select ng-model="basic.religion" id="selectbasic" name="selectbasic" class="form-control input-md">
+      <option>Select</option>
+      <option>Hindu</option>
       <option>Panjabi</option>
-    </select> -->
+    </select>
   </div>
 </div>
 <div class="form-group">
   <label class="col-md-3 control-label" for="ln">Language Known</label>  
   <div class="col-md-4">
-  <input ng-model="languageknown" ng-value="basic.languageknown" id="ln" name="ln" type="text" placeholder="Enter Known Language" class="form-control input-md" required="">
+
+    <select ng-model="basic.languageknown" id="selectbasic" name="selectbasic" class="form-control input-md" multiple>
+      <option>Hindi</option>
+      <option>Punjabi</option>
+      <option>Kanada</option>
+      <option>Telgu</option>
+      <option>English</option>
+    </select>
+
   </div>
 </div>
 <div class="form-group">
@@ -213,32 +268,32 @@
   <label class="col-md-3 control-label" for="gender">Eating Habits</label>
   <div class="col-md-5"> 
     <label class="radio-inline active" for="">
-      <input ng-model="lifeStyle" ng-value="lifeStyle.vegiterian" type="radio" name="Male" id="" value="1" ng-checked="(lifeStyle.vegiterian == 1)">
+      <input ng-model="lifeStyle.vegiterian" type="radio" name="vegiterian" value="1" ng-checked="(lifeStyle.vegiterian == 1)">
       Vegetarian
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="lifeStyle" ng-value="lifeStyle.NonVegiterian" ng-checked="(lifeStyle.NonVegiterian == 2)" type="radio" name="Female" id="" value="2">
+      <input ng-model="lifeStyle.NonVegiterian" type="radio" name="vegiterian" value="1" ng-checked="(lifeStyle.NonVegiterian == 1)">
       Non-Vegetarian
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="lifeStyle" ng-value="lifeStyle.Egaetarian" ng-checked="(lifeStyle.Egaetarian == 3)" type="radio" name="Female" id="" value="3">
+      <input ng-model="lifeStyle.Egaetarian" type="radio" name="vegiterian" value="1" ng-checked="(lifeStyle.Egaetarian == 1)">
       Egaetarian
     </label>
   </div>
 </div> 
- <div class="form-group">
+<div class="form-group">
   <label class="col-md-3 control-label" for="gender">Smoking Habits</label>
   <div class="col-md-4"> 
     <label class="radio-inline active" for="">
-      <input ng-model="lifeStyle" ng-value="lifeStyle.smoke" ng-checked="(lifeStyle.smoke == 1)" type="radio" name="Male" id="" value="1" checked="checked">
+      <input ng-model="lifeStyle" ng-checked="(lifeStyle.smoke == 1)" type="radio" name="smoke" value="1">
       No
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="lifeStyle" ng-value="lifeStyle.smoke" ng-checked="(lifeStyle.smoke == 2)" type="radio" name="Female" id="" value="2">
+      <input ng-model="lifeStyle" ng-checked="(lifeStyle.smoke == 1)" type="radio" name="smoke" value="1">
       Yes
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="lifeStyle" ng-value="lifeStyle.smoke" ng-checked="(lifeStyle.smoke == 3)" type="radio" name="Female" id="" value="3">
+      <input ng-model="lifeStyle" ng-checked="(lifeStyle.smokeOcc == 1)" type="radio" name="smoke" value="1">
       Occasionally
     </label>
   </div>
@@ -247,15 +302,15 @@
   <label class="col-md-3 control-label" for="gender">Drinking Habits</label>
   <div class="col-md-4"> 
     <label class="radio-inline active" for="">
-      <input type="radio" name="Male" id="" value="yes" checked="checked">
+     <input ng-model="lifeStyle" ng-checked="(lifeStyle.drink == 1)" type="radio" name="drink" value="1">
       No
     </label> 
     <label class="radio-inline" for="">
-      <input type="radio" name="Female" id="" value="no">
+     <input ng-model="lifeStyle" ng-checked="(lifeStyle.drink == 1)" type="radio" name="drink" value="1">
       Yes
     </label>
     <label class="radio-inline" for="">
-      <input type="radio" name="Female" id="" value="no">
+      <input ng-model="lifeStyle" ng-checked="(lifeStyle.drinkOcc == 1)" type="radio" name="drink" value="1">
       Occasionally
     </label>
   </div>
@@ -269,19 +324,45 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="ln">Native Place</label>  
   <div class="col-md-4">
-  <input ng-model="belongsToCity" ng-value="basic.belongsToCity" id="ln" name="ln" type="text" placeholder="Enter a Native Place" class="form-control input-md" required="">
+    <select ng-model="basic.belongsToCity" id="belongsToCity" name="belongsToCity" class="form-control input-md">
+      <option></option>
+      <option>DELHI</option>
+      <option>BANGALORE</option>
+      <option>NOIDA</option>
+      <option>GHAZIABD</option>
+      <option>CHENNAI</option>
+    </select>
+
   </div>
 </div>
  <div class="form-group">
   <label class="col-md-3 control-label" for="ln">Current City</label>  
   <div class="col-md-4">
-  <input ng-model="currentToCity" ng-value="basic.currentToCity" id="ln" name="ln" type="text" placeholder="Enter a Current City" class="form-control input-md" required="">
+  <select ng-model="basic.currentToCity" id="currentToCity" name="currentToCity" class="form-control input-md">
+      <option></option>
+      <option>DELHI</option>
+      <option>BANGALORE</option>
+      <option>NOIDA</option>
+      <option>GHAZIABD</option>
+      <option>CHENNAI</option>
+  </select>
+
   </div>
 </div>
 <div class="form-group">
   <label class="col-md-3 control-label" for="ln">Current State</label>  
   <div class="col-md-4">
-  <input ng-model="currentToState" ng-value="basic.currentToState" id="ln" name="ln" type="text" placeholder="Enter a Current State" class="form-control input-md" required="">
+
+  <select ng-model="basic.currentToState" id="currentToState" name="currentToState" class="form-control input-md">
+      <option></option>
+      <option>DELHI</option>
+      <option>MAHARASHTRA</option>
+      <option>KARNATAKA</option>
+      <option>TAMILNADU</option>
+      <option>GUJRAT</option>
+      <option>RAJASTHAN</option>
+  </select>
+
   </div>
 </div>
  
@@ -297,62 +378,76 @@
     <input ng-model="education" ng-value="education.PG" id="selectbasic" name="selectbasic" class="form-control input-md">
   </div>
 </div>
- <div class="form-group">
+
+<div class="form-group">
   <label class="col-md-3 control-label" for="gender">Employed In</label>
-  <div class="col-md-8"> 
-    <label class="radio-inline active" for="">
-      <input ng-model="orgType" ng-value="professional.orgType" type="radio" name="Male" id="" value="yes" checked="checked">
-      Government
-    </label> 
-    <label class="radio-inline" for="">
-      <input ng-model="orgType" ng-value="professional.orgType" type="radio" name="Female" id="" value="no">
-      Private
-    </label>
-    <label class="radio-inline" for="">
-      <input ng-model="orgType" ng-value="professional.orgType" type="radio" name="Female" id="" value="no">
-      Bussiness
-    </label>
-    <label class="radio-inline" for="">
-      <input ng-model="orgType" ng-value="professional.orgType" type="radio" name="Female" id="" value="no">
-      Defence
-    </label>
-    <label class="radio-inline" for="">
-      <input ng-model="orgType" ng-value="professional.orgType" type="radio" name="Female" id="" value="no">
-      Self Employed
-    </label>
-    <label class="radio-inline" for="">
-      <input ng-model="orgType" ng-value="professional.orgType" type="radio" name="Female" id="" value="no">
-      Not Working
-    </label>
+  <div class="col-md-4">
+
+   <select ng-model="professional.orgType" id="orgType" name="orgType" class="form-control input-md">
+      <option></option>
+      <option>Government</option>
+      <option>Private</option>
+      <option>Bussiness</option>
+      <option>Defence</option>
+      <option>Self Employed</option>
+      <option>Not Working</option>
+  </select>
+
   </div>
 </div> 
+
 <div class="form-group">
   <label class="col-md-3 control-label" for="selectbasic">Occupation</label>
-  <div class="col-md-6">
-    <input ng-model="professional" ng-value="professional.occupation" id="selectbasic" name="selectbasic" class="form-control input-md">
-  </div>
-</div>
- <div class="form-group">
-  <label class="col-md-3 control-label" for="selectbasic">Income</label>
-  <div class="col-md-2">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
-      <option>Select Currency</option>
-      <option>India - Rs.</option>
-      <option>USA - Doller</option>
+  <div class="col-md-4">
+
+    <select ng-model="professional.occupation" id="occupation" name="occupation" class="form-control input-md">
+        <option></option>
+        <option>Teacher</option>
+        <option>Assistant</option>
+        <option>Software Engineer</option>
+        <option>Manager</option>
+        <option>Student</option>
+        <option>other</option>
     </select>
   </div>
-  <div class="col-md-3">
-      <input ng-model="annualIncome" ng-value="professional.annualIncome" id="ln" name="ln" type="text" placeholder="Enter Income" class="form-control input-md" required="">
+</div>
+
+<div class="form-group">
+  <label class="col-md-3 control-label" for="selectbasic">Income</label>
+  <div class="col-md-2">
+
+     <select ng-model="professional.currency" id="currency" name="currency" class="form-control input-md">
+      <option></option>
+      <option>Rupee</option>
+      <option>Doller</option>
+      <option>Diram</option>
+    </select>
+
+
   </div>
   <div class="col-md-3">
-   <label class="radio-inline active" for="">
-      <input type="radio" name="Male" id="" value="yes" checked="checked">
-      Per Month
-    </label> 
-    <label class="radio-inline" for="">
-      <input type="radio" name="Female" id="" value="no">
-      Per Year
-    </label>
+
+      <select ng-model="professional.annualIncome" id="annualIncome" name="annualIncome" class="form-control input-md">
+      <option></option>
+      <option>less than 1 l.p.a </option>
+      <option>1 l.p.a - 3 l.p.a</option>
+      <option>3 l.p.a - 5 l.p.a</option>
+      <option>5 l.p.a - 10 l.p.a</option>
+      <option>10 l.p.a -15 l.p.a</option>
+      <option>15 l.p.a - 20 l.p.a</option>
+      <option>20 l.p.a - 25 l.p.a</option>
+      <option>25 l.p.a - 30 l.p.a</option>
+      <option>30 l.p.a - 35 l.p.a</option>
+      <option>35 l.p.a - 40 l.p.a</option>
+      <option>40 l.p.a - 45 l.p.a</option>
+      <option>45 l.p.a - 50 l.p.a</option>
+      <option>50 l.p.a - 60 l.p.a</option>
+      <option>60 l.p.a - 70 l.p.a</option>
+      <option>70 l.p.a - 80 l.p.a</option>
+      <option>80 l.p.a - 90 l.p.a</option>
+       <option>less than 100 l.p.a </option>
+    </select>
+
   </div>
 </div>
 
@@ -363,61 +458,46 @@
 
  <div class="form-group">
   <label class="col-md-3 control-label" for="gender">Family Status</label>
-  <div class="col-md-8"> 
-    <label class="radio-inline active" for="">
-      <input  type="radio" name="Middile Class" id="" value="yes" checked="checked">
-      Middile Class
-    </label> 
-    <label class="radio-inline" for="">
-      <input type="radio" name="Uper Middile Class" id="" value="no">
-      Upper Middile Class
-    </label>
-    <label class="radio-inline" for="">
-      <input type="radio" name="Rich" id="" value="no">
-      Rich
-    </label>
-    <label class="radio-inline" for="">
-      <input type="radio" name="Affluent" id="" value="no">
-      Affluent
-    </label>
+  <div class="col-md-4"> 
+
+    <select ng-model="family.familyStatus" id="familyStatus" name="familyStatus" class="form-control input-md">
+        <option></option>
+        <option>Middile Class</option>
+        <option>Upper Middle Class</option>
+        <option>Rich</option>
+        <option>Affluent</option>
+    </select>
+
   </div>
 </div> 
 <div class="form-group">
   <label class="col-md-3 control-label" for="FamilyType">Family Type</label>
-  <div class="col-md-8"> 
-    <label class="radio-inline active" for="">
-      <input type="radio" name="Joint" id="" value="yes" checked="checked">
-      Joint
-    </label> 
-    <label class="radio-inline" for="">
-      <input type="radio" name="Nuclear" id="" value="no">
-      Nuclear
-    </label>
+  <div class="col-md-4"> 
+
+    <select ng-model="family.familyType" id="familyType" name="familyType" class="form-control input-md">
+        <option></option>
+        <option>Joint</option>
+        <option>Nuclear</option>
+    </select>
+
   </div>
 </div> 
 <div class="form-group">
   <label class="col-md-3 control-label" for="gender">Family Values</label>
-  <div class="col-md-8"> 
-    <label class="radio-inline active" for="">
-      <input type="radio" name="Orthodox" id="" value="yes" checked="checked">
-      Orthodox
-    </label> 
-    <label class="radio-inline" for="">
-      <input type="radio" name="Traditional" id="" value="no">
-      Traditional
-    </label>
-    <label class="radio-inline" for="">
-      <input type="radio" name="Moderate" id="" value="no">
-      Moderate
-    </label>
-    <label class="radio-inline" for="">
-      <input type="radio" name="Liberal" id="" value="no">
-      Liberal
-    </label>
+  <div class="col-md-4"> 
+
+   <select ng-model="family.familyValues" id="familyValues" name="familyValues" class="form-control input-md">
+        <option></option>
+        <option>Orthodox</option>
+        <option>Traditional</option>
+         <option>Moderate</option>
+        <option>Liberal</option>
+    </select>
+
   </div>
 </div> 
 <div class="form-group">
-  <label class="col-md-3 control-label" for="">Family Values</label>
+  <label class="col-md-3 control-label" for="">About Family</label>
   <div class="col-md-6"> 
     <textarea ng-model="about" ng-value="family.about" class="form-control" id="exampleTextarea" rows="10" columns="50"></textarea>
   </div>
@@ -552,8 +632,9 @@
 </fieldset>
                 <div class="form-group">
                  <div class="col-md-12 col-sm-6 col-md-push-3 btn-both">
-    <button id="submit" name="submit" class="btn btn-login" ng-click="updateProfile()">Submit</button>
-                     <button id="submit" name="submit" class="btn btn-grey">Cancel</button>
+
+                      <button id="submit" name="submit" type="submit" class="btn btn-login" ng-click="updateProfile()">Submit</button>
+                     <button id="submit" name="submit" type="submit" ng-click="cancel()" class="btn btn-grey">Cancel</button>
   </div>
                     
                 </div>
