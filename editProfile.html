@@ -533,53 +533,53 @@
 <div class="form-group">
   <div class="col-md-4">
       <label class="control-label color_red" for="">Something about me</label>
-      <div class="checkbox">
+      <div class="checkbox" multiple>
       <label>
-        <input type="checkbox"> Basic Pranic Healing
+        <input ng-model="parnicYoga" type="checkbox" name="healing" value="Basic Pranic Healing" ng-checked="(parnicYoga.healing == 'Basic Pranic Healing')"> Basic Pranic Healing
       </label>
           <label>
-        <input type="checkbox"> Advanced Pranic Healing
+        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Advanced Pranic Healing" ng-checked="(parnicYoga.healing == 'Advanced Pranic Healing')" type="checkbox"> Advanced Pranic Healing
       </label>
           <label>
-        <input type="checkbox"> Pranic Psycotherapy
+        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Pranic Psycotherapy" ng-checked="(parnicYoga.healing == 'Pranic Psycotherapy')" type="checkbox"> Pranic Psycotherapy
       </label>
           <label>
-        <input type="checkbox"> Pranic Crystal Healing
+        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Pranic Crystal Healing" ng-checked="(parnicYoga.healing == 'Pranic Crystal Healing')" type="checkbox"> Pranic Crystal Healing
       </label>
           <label>
-        <input type="checkbox"> Pranic Psychic Self Defence
+        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Pranic Psychic Self Defence" ng-checked="(parnicYoga.healing == 'Pranic Psychic Self Defence')" type="checkbox"> Pranic Psychic Self Defence
       </label>
           <label>
-        <input type="checkbox"> Pranic Facial Rejuvenation & Body Sculpting
+        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Pranic Facial Rejuvenation & Body Sculpting" ng-checked="(parnicYoga.healing == 'Pranic Facial Rejuvenation & Body Sculpting')" type="checkbox"> Pranic Facial Rejuvenation & Body Sculpting
       </label>
-    </div>
+    </div>spritual
   </div>
     <div class="col-md-4">
       <label class="control-label color_red" for="">Spirituality Series</label>
       <div class="checkbox">
       <label>
-        <input type="checkbox"> Achieving Oneness With the Higher Soul
+        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Achieving Oneness With the Higher Soul" ng-checked="(parnicYoga.spritual == 'Pranic Facial Rejuvenation & Body Sculpting')" type="checkbox"> Achieving Oneness With the Higher Soul
       </label>
           <label>
-        <input type="checkbox"> Arhatic Yoga
+        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Arthatic Yoga" ng-checked="(parnicYoga.spritual == 'Arthatic Yoga')" type="checkbox"> Arthatic Yoga
       </label>
           <label>
-        <input type="checkbox"> Higher Clairvoyance
+        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Higher Clairvoyance" ng-checked="(parnicYoga.spritual == 'Higher Clairvoyance')" type="checkbox"> Higher Clairvoyance
       </label>
           <label>
-        <input type="checkbox"> Inner Teachings of Hinduism  Revealed
+        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Inner Teachings of Hinduism Revealed" ng-checked="(parnicYoga.spritual == 'Inner Teachings of Hinduism Revealed')" type="checkbox"> Inner Teachings of Hinduism Revealed
       </label>
           <label>
-        <input type="checkbox"> Inner Teachings of Christianity Revealed
+        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Inner Teachings of Christianity Revealed" ng-checked="(parnicYoga.spritual == 'Inner Teachings of Christianity Revealed')" type="checkbox"> Inner Teachings of Christianity Revealed
       </label>
           <label>
-        <input type="checkbox"> Inner Teachings of Buddhism Revealed
+        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Inner Teachings of Buddhism Revealed" ng-checked="(parnicYoga.spritual == 'Inner Teachings of Buddhism Revealed')" type="checkbox"> Inner Teachings of Buddhism Revealed
       </label>
            <label>
-        <input type="checkbox"> Spiritual Essence Of Man
+        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Inner Teachings of Hinduism Revealed" ng-checked="(parnicYoga.spritual == 'Spiritual Essence Of Man')" type="checkbox"> Spiritual Essence Of Man
       </label>
            <label>
-        <input type="checkbox"> Lord's Prayer
+        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Lord's Prayer" ng-checked="(parnicYoga.spritual == 'Lord's Prayer')" type="checkbox"> Lord's Prayer
       </label>
     </div>
   </div>
@@ -587,13 +587,13 @@
       <label class="control-label color_red" for="">Prosperity Series</label>
       <div class="checkbox">
       <label>
-        <input type="checkbox"> Kriyashakti
+        <input ng-model="parnicYoga.prosperity" type="checkbox" name="prosperity" value="Kriyashakti" ng-checked="(parnicYoga.prosperity == 'Kriyashakti')" type="checkbox"> Kriyashakti
       </label>
       <label>
-        <input type="checkbox"> Pranic Feng Shui
+        <input ng-model="parnicYoga.prosperity" type="checkbox" name="prosperity" value="Pranic Feng Shui" ng-checked="(parnicYoga.prosperity == 'Pranic Feng Shui')" type="checkbox"> Pranic Feng Shui
       </label>
       <label>
-        <input type="checkbox"> Spiritual Business Management
+        <input ng-model="parnicYoga.prosperity" type="checkbox" name="prosperity" value="Lord's Prayer" ng-checked="(parnicYoga.prosperity == 'Lord's Prayer')" type="checkbox"> Spiritual Business Management
       </label>
     </div>
   </div>
@@ -601,10 +601,12 @@
 <div class="form-group">
     <label class="col-md-3 control-label" for="">Practicing Arhatic Level</label>
     <div class="col-md-5">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
+    <select ng-model="parnicYoga.arhaticLevel" id="arhaticLevel" name="arhaticLevel" class="form-control input-md">
       <option>Select Currency</option>
-      <option>India - Rs.</option>
-      <option>USA - Doller</option>
+      <option>Preparatory level</option>
+      <option>Beginer</option>
+      <option>Intermidiate</option>
+      <option>Expert</option>
     </select>
   </div>
 </div>
@@ -612,21 +614,21 @@
     <label class="col-md-3 control-label" for="">Trainer</label>
     <div class="col-md-3">
         <label class="radio-inline active" for="">
-      <input type="radio" name="NO" id="" value="" checked="checked">
+      <input ng-model="parnicYoga.isTrainer" name="isTrainer" type="radio" name="NO" id="" value="0" ng-checked="(parnicYoga.isTrainer == '0')">
       No
     </label> 
     <label class="radio-inline" for="">
-      <input type="radio" name="Yes" id="" value="no">
+      <input ng-model="parnicYoga.isTrainer" name="isTrainer" type="radio" name="Yes" id="" value="" ng-checked="(parnicYoga.isTrainer == '1')">
       Yes
     </label>
     </div>
-    <div class="col-md-5">
+    <!-- <div class="col-md-5">
     <select id="selectbasic" name="selectbasic" class="form-control input-md">
       <option>Select</option>
       <option>India - Rs.</option>
       <option>USA - Doller</option>
     </select>
-  </div>
+  </div> -->
 </div>
 </div>
 </fieldset>

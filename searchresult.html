@@ -86,69 +86,34 @@
     <section class="list_grid">
         <div class="container">
           <legend class="color_red">Search Result</legend>
-          <span class="span_left"><ul class="pagination">
-    <li><a href="#">&laquo;</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">&raquo;</a></li>
-</ul></span>
+          <span class="span_left">
+            <ul class="pagination">
+              <li><a href="#">&laquo;</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&raquo;</a></li>
+            </ul>
+          </span>
           <div id="container">
-    <div class="buttons">
-        <a href="" class="grid"><i class="glyphicon glyphicon-th"></i></a>
-        <a href="" class="list"><i class="glyphicon glyphicon-th-list"></i></a>
-    </div>
-    
-    <div class="list">
-        <div>
-          <h4>User ID</h4>
-          <img src="images/avatar.jpg" alt="" />
-          <h2>User Name</h2>
-          <p>sjdkhfjshdf shkdfhs</p>
-          <a class="btn btn-success btn-color" href="">View Profile</a>
-        </div>
-    </div>
-     <div class="hr"></div>
-     <div class="list">
-        <div>
-          <h4>User ID</h4>
-          <img src="images/avatar.jpg" alt="" />
-          <h2>User Name</h2>
-          <p>sjdkhfjshdf shkdfhs</p>
-          <a class="btn btn-success btn-color" href="">View Profile</a>
-        </div>
-        <div>
-          <h4>User ID</h4>
-          <img src="images/avatar.jpg" alt="" />
-          <h2>User Name</h2>
-          <p>sjdkhfjshdf shkdfhs</p>
-          <a class="btn btn-success btn-color" href="">View Profile</a>
-        </div>
-        <div>
-          <h4>User ID</h4>
-          <img src="images/avatar.jpg" alt="" />
-          <h2>User Name</h2>
-          <p>sjdkhfjshdf shkdfhs</p>
-          <a class="btn btn-success btn-color" href="">View Profile</a>
-        </div>
-        <div>
-          <h4>User ID</h4>
-          <img src="images/avatar.jpg" alt="" />
-          <h2>User Name</h2>
-          <p>sjdkhfjshdf shkdfhs</p>
-          <a class="btn btn-success btn-color" href="">View Profile</a>
-        </div>
-        <div>
-          <h4>User ID</h4>
-          <img src="images/avatar.jpg" alt="" />
-          <h2>User Name</h2>
-          <p>sjdkhfjshdf shkdfhs</p>
-          <a class="btn btn-success btn-color" href="">View Profile</a>
-        </div>
-    </div>
-</div>    
+              <div class="buttons">
+                  <a href="" class="grid"><i class="glyphicon glyphicon-th"></i></a>
+                  <a href="" class="list"><i class="glyphicon glyphicon-th-list"></i></a>
+              </div>
+              
+              <div ng-repeat="serches in serches" class="list">
+                  <div>
+                    <h4>{{serches.userid}}</h4>
+                    <img src="images/mavatar.jpg" alt="" />
+                    <h2>{{serches.basic.firstName}} {{serches.basic.lastName}}</h2>
+                    <p>{{serches.basic.aboutMe}}</p>
+                    <a class="btn btn-success btn-color" href="">View Profile</a>
+                  </div>
+              </div>
+               
+          </div>    
 
                 
         </div>

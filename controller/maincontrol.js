@@ -114,7 +114,6 @@ app.controller("editProfilecontrol", function($scope, $http, $window, $document)
     }
     else{
         usrData = JSON.parse(usrData);
-
         $http({
             method : "POST",
             url : url,
@@ -218,11 +217,11 @@ app.controller("searchresultcontrol", function($scope, $http, $window, $document
     var usrData = localStorage.getItem('sessions');
     var usrProfile = localStorage.getItem('profiles');
     var serches = localStorage.getItem('serches');
-    
+
     if(!usrData){
           $window.location.href = "/login.html";
     }
-    if(!usrprofile){
+    if(!usrProfile){
           $window.location.href = "/myprofile.html";
     }
     if(!serches){
@@ -234,7 +233,7 @@ app.controller("searchresultcontrol", function($scope, $http, $window, $document
          serches = JSON.parse(serches);
          loadProfileScope($scope, usrProfile);
          $scope.serches = serches;
-         console.log(serchse)
+         console.log(serches);
     }
     catch(ex){
         alert("fail to load profile data");
