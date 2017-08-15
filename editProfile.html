@@ -169,19 +169,19 @@
   <label class="col-md-3 control-label" for="gender">Complexity</label>
   <div class="col-md-4"> 
     <label class="radio-inline active" for="">
-      <input ng-model="basic.complex" type="radio" name="complex" value="Very Fair" ng-checked="(basic.complex == 'Very Fair')">
+      <input ng-model="complex" type="radio" name="complex" value="Very Fair" ng-checked="(basic.complex == 'Very Fair')">
       Very Fair
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="basic.complex" type="radio" name="complex" value="Fair" ng-checked="(basic.complex == 'Fair')">
+      <input ng-model="complex" type="radio" name="complex" value="Fair" ng-checked="(basic.complex == 'Fair')">
       Fair
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="basic.complex" type="radio" name="complex" value="Wheatish" ng-checked="(basic.complex == 'Wheatish')">
+      <input ng-model="complex" type="radio" name="complex" value="Wheatish" ng-checked="(basic.complex == 'Wheatish')">
       Wheatish
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="basic.complex" type="radio" name="complex" value="Dark" ng-checked="(basic.complex == 'Dark')">
+      <input ng-model="complex" type="radio" name="complex" value="Dark" ng-checked="(basic.complex == 'Dark')">
       Dark
     </label>
   </div>
@@ -191,11 +191,11 @@
   <label class="col-md-3 control-label" for="gender">Any Disability</label>
   <div class="col-md-4"> 
     <label class="radio-inline active" for="">
-      <input ng-model="basic.disablity" type="radio" name="disablity" value="Normal" ng-checked="(basic.disablity == 'Dark')">
+      <input ng-model="disablity" type="radio" name="disablity" value="Normal" ng-checked="(basic.disablity == 'Normal')">
       Normal
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="basic.disablity" type="radio" name="disablity" value="Physically Challanged" ng-checked="(basic.disablity == 'Physically Challanged')">
+      <input ng-model="disablity" type="radio" name="disablity" value="Physically Challanged" ng-checked="(basic.disablity == 'Physically Challanged')">
       Physically Challanged
     </label>
   </div>
@@ -210,19 +210,19 @@
   <label class="col-md-3 control-label" for="gender">Martial Status</label>
   <div class="col-md-6"> 
     <label class="radio-inline active" for="">
-      <input ng-model="basic.maritialStatus" type="radio" name="maritialStatus" value="Never Married" ng-checked="(basic.disablity == 'Never Married')">
+      <input ng-model="maritialStatus" type="radio" name="maritialStatus" value="Never Married" ng-checked="(basic.maritialStatus == 'Never Married')">
       Never Married
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="basic.maritialStatus" type="radio" name="maritialStatus" value="Widowed" ng-checked="(basic.disablity == 'Widowed')">
+      <input ng-model="maritialStatus" type="radio" name="maritialStatus" value="Widowed" ng-checked="(basic.maritialStatus == 'Widowed')">
       Widowed
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="basic.maritialStatus" type="radio" name="maritialStatus" value="Divorced" ng-checked="(basic.disablity == 'Divorced')">
+      <input ng-model="maritialStatus" type="radio" name="maritialStatus" value="Divorced" ng-checked="(basic.maritialStatus == 'Divorced')">
       Divorced
     </label>
     <label class="radio-inline" for="">
-      <input ng-model="basic.maritialStatus" type="radio" name="maritialStatus" value="Awaiting Divorce" ng-checked="(basic.disablity == 'Awaiting Divorce')">
+      <input ng-model="maritialStatus" type="radio" name="maritialStatus" value="Awaiting Divorce" ng-checked="(basic.maritialStatus == 'Awaiting Divorce')">
       Awaiting Divorce
     </label>
   </div>
@@ -532,70 +532,44 @@
    
 <div class="form-group">
   <div class="col-md-4">
-      <label class="control-label color_red" for="">Something about me</label>
-      <div class="checkbox" multiple>
-      <label>
-        <input ng-model="parnicYoga" type="checkbox" name="healing" value="Basic Pranic Healing" ng-checked="(parnicYoga.healing == 'Basic Pranic Healing')"> Basic Pranic Healing
-      </label>
-          <label>
-        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Advanced Pranic Healing" ng-checked="(parnicYoga.healing == 'Advanced Pranic Healing')" type="checkbox"> Advanced Pranic Healing
-      </label>
-          <label>
-        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Pranic Psycotherapy" ng-checked="(parnicYoga.healing == 'Pranic Psycotherapy')" type="checkbox"> Pranic Psycotherapy
-      </label>
-          <label>
-        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Pranic Crystal Healing" ng-checked="(parnicYoga.healing == 'Pranic Crystal Healing')" type="checkbox"> Pranic Crystal Healing
-      </label>
-          <label>
-        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Pranic Psychic Self Defence" ng-checked="(parnicYoga.healing == 'Pranic Psychic Self Defence')" type="checkbox"> Pranic Psychic Self Defence
-      </label>
-          <label>
-        <input ng-model="parnicYoga.healing" type="checkbox" name="healing" value="Pranic Facial Rejuvenation & Body Sculpting" ng-checked="(parnicYoga.healing == 'Pranic Facial Rejuvenation & Body Sculpting')" type="checkbox"> Pranic Facial Rejuvenation & Body Sculpting
-      </label>
-    </div>spritual
+
+  <label class="control-label color_red" for="">Healing Series</label>
+
+   <select ng-model="parnicYoga.healing" id="healing" name="healing" class="form-control input-md" multiple>
+      <option>Basic Pranic Healing</option>
+      <option>Advanced Pranic Healing</option>
+      <option>Pranic Psycotherapy</option>
+      <option>Pranic Crystal Healing</option>
+      <option>Pranic Psychic Self Defence</option>
+      <option>Pranic Facial Rejuvenation & Body Sculpting</option>
+      <option>spritual</option>
+    </select>
+
   </div>
     <div class="col-md-4">
       <label class="control-label color_red" for="">Spirituality Series</label>
-      <div class="checkbox">
-      <label>
-        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Achieving Oneness With the Higher Soul" ng-checked="(parnicYoga.spritual == 'Pranic Facial Rejuvenation & Body Sculpting')" type="checkbox"> Achieving Oneness With the Higher Soul
-      </label>
-          <label>
-        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Arthatic Yoga" ng-checked="(parnicYoga.spritual == 'Arthatic Yoga')" type="checkbox"> Arthatic Yoga
-      </label>
-          <label>
-        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Higher Clairvoyance" ng-checked="(parnicYoga.spritual == 'Higher Clairvoyance')" type="checkbox"> Higher Clairvoyance
-      </label>
-          <label>
-        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Inner Teachings of Hinduism Revealed" ng-checked="(parnicYoga.spritual == 'Inner Teachings of Hinduism Revealed')" type="checkbox"> Inner Teachings of Hinduism Revealed
-      </label>
-          <label>
-        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Inner Teachings of Christianity Revealed" ng-checked="(parnicYoga.spritual == 'Inner Teachings of Christianity Revealed')" type="checkbox"> Inner Teachings of Christianity Revealed
-      </label>
-          <label>
-        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Inner Teachings of Buddhism Revealed" ng-checked="(parnicYoga.spritual == 'Inner Teachings of Buddhism Revealed')" type="checkbox"> Inner Teachings of Buddhism Revealed
-      </label>
-           <label>
-        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Inner Teachings of Hinduism Revealed" ng-checked="(parnicYoga.spritual == 'Spiritual Essence Of Man')" type="checkbox"> Spiritual Essence Of Man
-      </label>
-           <label>
-        <input ng-model="parnicYoga.spritual" type="checkbox" name="spritual" value="Lord's Prayer" ng-checked="(parnicYoga.spritual == 'Lord's Prayer')" type="checkbox"> Lord's Prayer
-      </label>
-    </div>
+
+      <select ng-model="parnicYoga.spritual" id="spritual" name="spritual" class="form-control input-md" multiple>
+        <option>Achieving Oneness With the Higher Soul</option>
+        <option>Arthatic Yoga</option>
+        <option>Higher Clairvoyance</option>
+        <option>Inner Teachings of Hinduism Revealed</option>
+        <option>Inner Teachings of Christianity Revealed</option>
+        <option>Inner Teachings of Buddhism Revealed</option>
+        <option>Spiritual Essence Of Man</option>
+        <option>Lord's Prayer</option>
+      </select>
+
   </div>
     <div class="col-md-4">
       <label class="control-label color_red" for="">Prosperity Series</label>
-      <div class="checkbox">
-      <label>
-        <input ng-model="parnicYoga.prosperity" type="checkbox" name="prosperity" value="Kriyashakti" ng-checked="(parnicYoga.prosperity == 'Kriyashakti')" type="checkbox"> Kriyashakti
-      </label>
-      <label>
-        <input ng-model="parnicYoga.prosperity" type="checkbox" name="prosperity" value="Pranic Feng Shui" ng-checked="(parnicYoga.prosperity == 'Pranic Feng Shui')" type="checkbox"> Pranic Feng Shui
-      </label>
-      <label>
-        <input ng-model="parnicYoga.prosperity" type="checkbox" name="prosperity" value="Lord's Prayer" ng-checked="(parnicYoga.prosperity == 'Lord's Prayer')" type="checkbox"> Spiritual Business Management
-      </label>
-    </div>
+
+       <select ng-model="parnicYoga.prosperity" id="prosperity" name="prosperity" class="form-control input-md" multiple>
+        <option>Kriyashakti</option>
+        <option>Pranic Feng Shui</option>
+        <option>Spiritual Business Management</option>
+      </select>
+
   </div>
 </div>
 <div class="form-group">
@@ -618,17 +592,10 @@
       No
     </label> 
     <label class="radio-inline" for="">
-      <input ng-model="parnicYoga.isTrainer" name="isTrainer" type="radio" name="Yes" id="" value="" ng-checked="(parnicYoga.isTrainer == '1')">
+      <input ng-model="parnicYoga.isTrainer" name="isTrainer" type="radio" name="Yes" id="" value="1" ng-checked="(parnicYoga.isTrainer == '1')">
       Yes
     </label>
     </div>
-    <!-- <div class="col-md-5">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
-      <option>Select</option>
-      <option>India - Rs.</option>
-      <option>USA - Doller</option>
-    </select>
-  </div> -->
 </div>
 </div>
 </fieldset>

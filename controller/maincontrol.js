@@ -124,6 +124,8 @@ app.controller("editProfilecontrol", function($scope, $http, $window, $document)
             headers: {'Content-Type': 'application/json'}
         }).then(function mySuccess(response) {
 
+            localStorage.setItem('profiles', JSON.stringify(response.data.data[0]));
+
             loadProfileScope($scope, response.data.data[0]);
 
         }, function myError(err) {
@@ -213,6 +215,9 @@ app.controller("searchcontrol", function($scope, $http, $window, $document) {
 });
 
 app.controller("searchresultcontrol", function($scope, $http, $window, $document) {
+    $scope.logout = function(){
+        logout_func($scope, $http, $window, usrData);
+    }
     
     var usrData = localStorage.getItem('sessions');
     var usrProfile = localStorage.getItem('profiles');
@@ -231,9 +236,9 @@ app.controller("searchresultcontrol", function($scope, $http, $window, $document
          usrData = JSON.parse(usrData);
          usrProfile = JSON.parse(usrProfile);
          serches = JSON.parse(serches);
+
          loadProfileScope($scope, usrProfile);
          $scope.serches = serches;
-         console.log(serches);
     }
     catch(ex){
         alert("fail to load profile data");
@@ -257,10 +262,12 @@ function logout_func ($scope, $http, $window, usrData){
             //console.log(response.data.data);
             localStorage.removeItem('sessions');
             localStorage.removeItem('profiles');
+            localStorage.removeItem('serches');
             $window.location.href = "/login.html";
         }, function myError(err) {
             localStorage.removeItem('sessions');
             localStorage.removeItem('profiles');
+            localStorage.removeItem('serches');
             $scope.myWelcome = err.statusText;
             console.log(err);
             $window.location.href = "/login.html";
@@ -278,8 +285,6 @@ function search ($scope, $http, $window, usrData){
             headers: {'Content-Type': 'application/json'}
         }).then(function mySuccess(response) {
 
-            console.log(response.data.data[0]);
-            $scope.myWelcome = response.data.data[0];
             localStorage.setItem('serches', JSON.stringify(response.data.data));
             $window.location.href = "/searchresult.html";
 
@@ -292,129 +297,133 @@ function search ($scope, $http, $window, usrData){
 
 function updateProfile ($scope, $http, $window, usrData){
     var url = __env.apiUrl + "/users/action/updateProfile";
-        $http({
-            method : "POST",
-            url : url,
-            data: {
-            "loginToken": usrData.loginToken,
-            "profileID": usrData.profId,
-            "userid": "AM123",
-            "profileImage": "",
-            "parnicYoga": {
-                "arhaticLevel": "",
-                "isTrainer": 0,
-                "trainerLevel": "",
-                "prosperity": [],
-                "spritual": [],
-                "healing": []
-            },
-            "desiredPartner": {
-                "vegiterian": 0,
-                "smoke": 0,
-                "drink": 0,
-                "hroscoperMustMatch": 0,
-                "annualIncomeMin": 0,
-                "annualIncomeMax": 0,
-                "horoscope": [
-                    ""
-                ]
-            },
-            "contact": {
-                "email": "test@test1.com",
-                "phone_no": "",
-                "mobile": "9999999999"
-            },
-            "lifeStyle": {
-                "vegetarian": 0,
-                "NonVegetarian": 0,
-                "Egaetarian": 0,
-                "smoke": 0,
-                "smokeOcc": 0,
-                "drink": 0,
-                "drinkOcc": 0,
-                "ownHouse": 0,
-                "ownCar": 0,
-                "cooking": 0,
-                "about": "",
-                "hobbies": []
-            },
-            "horoscope": {
-                "mustMatch": 0,
-                "rashi": "",
-                "nakshatra": "",
-                "manglik": ""
-            },
-            "professional": {
-                "about": "",
-                "orgName": "",
-                "occupation": "",
-                "currency": "",
-                "annualIncome": "",
-                "orgType": ""
-            },
-            "family": {
-                "about": "",
-                "familyStatus": "",
-                "familyType": "",
-                "familyValues": "",
-                "familyIncome": "",
-                "fatherOccupation": "",
-                "motherOccupation": "",
-                "brothers": 0,
-                "sisters": 0
-            },
-            "education": {
-                "hightestEdu": "",
-                "PG": "",
-                "PGCollege": "",
-                "UG": "",
-                "UGCollege": ""
-            },
-            "basic": {
-                "firstName": "best",
-                "middleName": "",
-                "lastName": "",
-                "DOB": "13/11/1990",
-                "TOB": "",
-                "complex": "",
-                "disablity": "",
-                "gender": "male",
-                "aboutMe": "",
-                "height": "",
-                "weight": "",
-                "maritialStatus": "",
-                "belongsToCountry": "INDIA",
-                "belongsToState": "",
-                "belongsToCity": "",
-                "currentToCountry": "",
-                "currentToState": "",
-                "currentToCity": "",
-                "profileManagedBy": "",
-                "religion": "",
-                "cast": "",
-                "languageknown": []
-            },
-            "profileStatus": {
-                "certificatedUploaded": 0,
-                "certificatedApproved": 0,
-                "profileInSearch": 0,
-                "imagesApproved": 0,
-                "loginToken": ""
-            }
+    // alert("complex: " + $("#complex").val());
+    var usrProfile = localStorage.getItem('profiles');
+    usrProfile = JSON.parse(usrProfile);
+
+    $http({
+        method : "POST",
+        url : url,
+        data: {
+        "loginToken": usrData.loginToken,
+        "profileID": usrData.profId,
+        "userid": usrProfile.userid,
+        "profileImage": "",
+        "parnicYoga": {
+            "arhaticLevel": $scope.parnicYoga.arhaticLevel,
+            "isTrainer": $scope.parnicYoga.isTrainer,
+            "trainerLevel": "",
+            "prosperity": [],
+            "spritual": [],
+            "healing": []
         },
-            headers: {'Content-Type': 'application/json'}
-        }).then(function mySuccess(response) {
+        "desiredPartner": {
+            "vegiterian": 0,
+            "smoke": 0,
+            "drink": 0,
+            "hroscoperMustMatch": 0,
+            "annualIncomeMin": 0,
+            "annualIncomeMax": 0,
+            "horoscope": [
+                ""
+            ]
+        },
+        "contact": {
+            "email": "test@test1.com",
+            "phone_no": "",
+            "mobile": "9999999999"
+        },
+        "lifeStyle": {
+            "vegetarian": 0,
+            "NonVegetarian": 0,
+            "Egaetarian": 0,
+            "smoke": 0,
+            "smokeOcc": 0,
+            "drink": 0,
+            "drinkOcc": 0,
+            "ownHouse": 0,
+            "ownCar": 0,
+            "cooking": 0,
+            "about": "",
+            "hobbies": []
+        },
+        "horoscope": {
+            "mustMatch": 0,
+            "rashi": "",
+            "nakshatra": "",
+            "manglik": ""
+        },
+        "professional": {
+            "about": "",
+            "orgName": "",
+            "occupation": "",
+            "currency": "",
+            "annualIncome": "",
+            "orgType": ""
+        },
+        "family": {
+            "about": "",
+            "familyStatus": "",
+            "familyType": "",
+            "familyValues": "",
+            "familyIncome": "",
+            "fatherOccupation": "",
+            "motherOccupation": "",
+            "brothers": 0,
+            "sisters": 0
+        },
+        "education": {
+            "hightestEdu": "",
+            "PG": "",
+            "PGCollege": "",
+            "UG": "",
+            "UGCollege": ""
+        },
+        "basic": {
+            "firstName": "best",
+            "middleName": "",
+            "lastName": "",
+            "DOB": "13/11/1990",
+            "TOB": "",
+            "complex": "",
+            "disablity": "",
+            "gender": "male",
+            "aboutMe": "",
+            "height": "",
+            "weight": "",
+            "maritialStatus": "",
+            "belongsToCountry": "INDIA",
+            "belongsToState": "",
+            "belongsToCity": "",
+            "currentToCountry": "",
+            "currentToState": "",
+            "currentToCity": "",
+            "profileManagedBy": "",
+            "religion": "",
+            "cast": "",
+            "languageknown": []
+        },
+        "profileStatus": {
+            "certificatedUploaded": 0,
+            "certificatedApproved": 0,
+            "profileInSearch": 0,
+            "imagesApproved": 0,
+            "loginToken": ""
+        }
+    },
+        headers: {'Content-Type': 'application/json'}
+    }).then(function mySuccess(response) {
 
-            console.log(response.data.data[0]);
-            localStorage.removeItem('profiles');
-            $window.location.href = "/myprofile.html";
+        console.log(response.data.data[0]);
+        localStorage.removeItem('profiles');
+        $window.location.href = "/myprofile.html";
 
-        }, function myError(err) {
+    }, function myError(err) {
 
-            alert("could not update profile, contact to admin");
-            $scope.errorLevel = err.statusText;
-            $window.location.href = "/myprofile.html";
-        });
+        alert("could not update profile, contact to admin");
+        $scope.errorLevel = err.statusText;
+        $window.location.href = "/myprofile.html";
+    });
 }
 
 function calculateAge(dob){

@@ -90,10 +90,6 @@
             <ul class="pagination">
               <li><a href="#">&laquo;</a></li>
               <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
               <li><a href="#">&raquo;</a></li>
             </ul>
           </span>
@@ -106,7 +102,11 @@
               <div ng-repeat="serches in serches" class="list">
                   <div>
                     <h4>{{serches.userid}}</h4>
-                    <img src="images/mavatar.jpg" alt="" />
+                 
+                        <img ng-if="(serches.basic.gender == 'Male')" src="images/mavatar.jpg" alt="" />
+
+                        <img ng-if="(serches.basic.gender != 'Male')" src="images/favatar.png" alt="" />
+
                     <h2>{{serches.basic.firstName}} {{serches.basic.lastName}}</h2>
                     <p>{{serches.basic.aboutMe}}</p>
                     <a class="btn btn-success btn-color" href="">View Profile</a>
