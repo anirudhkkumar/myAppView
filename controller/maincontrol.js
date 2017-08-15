@@ -213,6 +213,35 @@ app.controller("searchcontrol", function($scope, $http, $window, $document) {
     $scope.basic = profileData.basic;
 });
 
+app.controller("searchresultcontrol", function($scope, $http, $window, $document) {
+    
+    var usrData = localStorage.getItem('sessions');
+    var usrProfile = localStorage.getItem('profiles');
+    var serches = localStorage.getItem('serches');
+    
+    if(!usrData){
+          $window.location.href = "/login.html";
+    }
+    if(!usrprofile){
+          $window.location.href = "/myprofile.html";
+    }
+    if(!serches){
+          $window.location.href = "/myprofile.html";
+    } 
+    try{
+         usrData = JSON.parse(usrData);
+         usrProfile = JSON.parse(usrProfile);
+         serches = JSON.parse(serches);
+         loadProfileScope($scope, usrProfile);
+         $scope.serches = serches;
+         console.log(serchse)
+    }
+    catch(ex){
+        alert("fail to load profile data");
+        $window.location.href = "/login.html";
+    }  
+});
+
 function logout_func ($scope, $http, $window, usrData){
      var url = __env.apiUrl + "/users/logout";
         $http({
@@ -252,6 +281,7 @@ function search ($scope, $http, $window, usrData){
 
             console.log(response.data.data[0]);
             $scope.myWelcome = response.data.data[0];
+            localStorage.setItem('serches', JSON.stringify(response.data.data));
             $window.location.href = "/searchresult.html";
 
         }, function myError(err) {
