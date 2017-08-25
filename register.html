@@ -225,23 +225,22 @@
 
                 <div class="input-group">
                   <label class="col-md-5 control-label rm-pd-left" for="" style="padding-right: 35px;">Upload Arhatic Preparatory Certificate</label>
-                <div class="col-xs-12 col-md-7 col-sm-8">  
-            <!-- image-preview-filename input [CUT FROM HERE]-->
-            <div class="input-group image-preview">
-                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                <span class="input-group-btn">
-                    <!-- image-preview-clear button -->
-                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                        <span class="glyphicon glyphicon-remove"></span> Clear
-                    </button>
-                    <!-- image-preview-input -->
-                    <div class="btn btn-default image-preview-input">
-                        <span class="glyphicon glyphicon-folder-open"></span>
-                        <span class="image-preview-input-title">Browse</span>
-                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
-                    </div>
-                </span>
-            </div><!-- /input-group image-preview [TO HERE]--> 
+                <div class="col-xs-12 col-md-7 col-sm-8">
+
+              <input type="text" class="form-control" readonly="" style="border-radius: 1px;">
+
+              <label class="input-group-btn">
+                  <span class="btn btn-primary btn-browse">
+                      Browse… <input type="file" id="fileUploaded" ng-model="file" style="display: none;" multiple="">
+                  </span>
+              </label>
+
+              <label class="input-group-btn" ng-click="fileUpload()">
+                  <span class="btn btn-primary btn-browse">
+                      Upload
+                  </span>
+              </label>
+
         </div>
                 </div>
 

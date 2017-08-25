@@ -139,13 +139,38 @@ app.controller("editProfilecontrol", function($scope, $http, $window, $document)
 });
 
 app.controller("registercontrol", function($scope, $http, $window, $document) {
+    $scope.fileUpload = function(){
+         var url = __env.apiUrl + "/uploadFile";
+        // alert($("#fileUploaded").val());
+
+        $http({
+                method : "POST",
+                url : url,
+                data: data,
+                headers: {'Content-Type': 'multipart/form-data'},
+                headers: {'Content-Type': 'application/json'}
+            }).then(function mySuccess(response) {
+                $scope.usrData = response.data;
+
+               $window.location.href = "/success.html";
+            }, function myError(err) {
+                $scope.usrData = err.statusText;
+                console.log(err);
+            });
+    };
+
     $scope.register = function(){
         var url = __env.apiUrl + "/users/register";
 
         console.log($scope.name, $scope.username, $scope.password , $scope.gender , $('#dob').val() ,$scope.mothertounge ,$scope.mobile , $scope.country, $('#g-recaptcha-response').val());
-        if($scope.password != $scope.repassword){
+
+        if($("#fileUploaded").val() == undefined || $("#fileUploaded").val() == "" || !$("#fileUploaded").val()) {
+
+            alert("please upload your certificate");
+        } else if($scope.password != $scope.repassword){
             alert("password does not match with re-type-password");
-        } else if($scope.name && $scope.username && $scope.password && $scope.gender && $('#dob').val() && $scope.mothertounge && $scope.mobile && $scope.country && $('#g-recaptcha-response').val()){
+        }
+        else if($scope.name && $scope.username && $scope.password && $scope.gender && $('#dob').val() && $scope.mothertounge && $scope.mobile && $scope.country && $('#g-recaptcha-response').val()){
 
             var data = {
                 "name": $scope.name,
@@ -155,12 +180,14 @@ app.controller("registercontrol", function($scope, $http, $window, $document) {
                 "dob": $('#dob').val(),
                 "mothertounge": $scope.mothertounge,
                 "mobile": $scope.mobile,
-                "country": $scope.country
+                "country": $scope.country,
+                "file": $("#fileUploaded").val()
             };
             $http({
                 method : "POST",
                 url : url,
                 data: data,
+                headers: {'Content-Type': 'multipart/form-data'},
                 headers: {'Content-Type': 'application/json'}
             }).then(function mySuccess(response) {
                 $scope.usrData = response.data;
@@ -280,7 +307,14 @@ function search ($scope, $http, $window, usrData){
             method : "POST",
             url : url,
             data: {
-                "loginToken": usrData.loginToken
+                "loginToken": usrData.loginToken,
+                "gender": "male",
+                "minAge": 20,
+                "maxAge": 30,
+                "minHeight": "5.2",
+                "maxHeight": "5.8",
+                "martialStatus": "Any",
+                "eatingHabits": ""
             },
             headers: {'Content-Type': 'application/json'}
         }).then(function mySuccess(response) {
